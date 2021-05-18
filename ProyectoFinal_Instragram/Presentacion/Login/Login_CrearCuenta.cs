@@ -16,5 +16,43 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
         {
             InitializeComponent();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            // verifica que la contraseña este encriptada y la muestra
+            if (txtCrearContraseña.PasswordChar == '*')
+            {
+                txtCrearContraseña.PasswordChar = '\0';
+            }
+
+            //  De lo contrario volvera a encriptar la contraseña
+            else
+            {
+                txtCrearContraseña.PasswordChar = '*';
+            }
+
+        }
+
+        private void btnPaginaInicio_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login_Inicio login_Inicio = new Login_Inicio();
+            login_Inicio.Show();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bntRegistrarUsuario_Click(object sender, EventArgs e)
+        {
+            string nombre;
+        }
     }
 }

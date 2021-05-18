@@ -39,7 +39,6 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
 
         private void label3_Click(object sender, EventArgs e)
         {
-
             // verifica que la contraseña este encriptada y la muestra
             if (txtContraseña.PasswordChar == '*')
             {
@@ -51,9 +50,6 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             {
                 txtContraseña.PasswordChar = '*';
             }
-
-
-
         }
 
         private void button3_Click(object sender, EventArgs e)
