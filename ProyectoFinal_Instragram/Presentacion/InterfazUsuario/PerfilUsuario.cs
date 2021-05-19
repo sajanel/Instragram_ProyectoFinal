@@ -16,5 +16,10 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         {
             InitializeComponent();
         }
+
+        private void PerfilUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

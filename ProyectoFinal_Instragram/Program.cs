@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoFinal_Instragram.Presentacion.Login;
+using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
 
 namespace ProyectoFinal_Instragram
 {
@@ -18,7 +19,8 @@ namespace ProyectoFinal_Instragram
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Inicio());
+            //Application.Run(new Login_Inicio());
+            Application.Run(new PerfilUsuario());
         }
     }
 }
