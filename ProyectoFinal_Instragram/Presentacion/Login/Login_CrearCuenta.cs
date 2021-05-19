@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
+using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 
 namespace ProyectoFinal_Instragram.Presentacion.Login
 {
     public partial class Login_CrearCuenta : Form
     {
+        ArbolAvl arbol = new ArbolAvl();
         public Login_CrearCuenta()
         {
             InitializeComponent();
@@ -40,19 +43,18 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             login_Inicio.Show();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void bntRegistrarUsuario_Click(object sender, EventArgs e)
         {
-            string nombre;
+            //Aca deberia leer un xml e insetarlo en un arbol
+            //y permitir colocar un foto de usuario y almacenarlo en el xml
+
+            Informacion_Usuario infoUsuario = new Informacion_Usuario(txtNomUsuario.Text,txtNomPersona.Text,
+            txtFechaNacimiento.Text,"direccion imagen",txtCrearContraseña.Text);
+
+            
+            arbol.insertar(infoUsuario);
         }
+
+        
     }
 }

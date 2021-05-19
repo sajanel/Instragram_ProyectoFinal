@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Estructura de datos\ArbolAVL\" />
     <Folder Include="Estructura de datos\TablaHash\" />
   </ItemGroup>
 

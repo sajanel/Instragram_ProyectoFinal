@@ -46,8 +46,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.Contenidor1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.bntIniciarSesion = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -158,7 +158,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.Contenidor1);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.bntIniciarSesion);
             this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Location = new System.Drawing.Point(705, 39);
             this.panel5.Name = "panel5";
@@ -209,7 +209,6 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.label2.Size = new System.Drawing.Size(66, 14);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtContraseña
             // 
@@ -227,7 +226,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             // 
             this.Contenidor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Contenidor1.Controls.Add(this.label1);
-            this.Contenidor1.Controls.Add(this.txtCorreo);
+            this.Contenidor1.Controls.Add(this.txtUsuario);
             this.Contenidor1.Location = new System.Drawing.Point(41, 99);
             this.Contenidor1.Name = "Contenidor1";
             this.Contenidor1.Size = new System.Drawing.Size(256, 51);
@@ -240,36 +239,35 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 14);
+            this.label1.Size = new System.Drawing.Size(98, 14);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Teléfono, usuario o correo electronico";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Digite su usuario ";
             // 
-            // txtCorreo
+            // txtUsuario
             // 
-            this.txtCorreo.AutoCompleteCustomSource.AddRange(new string[] {
+            this.txtUsuario.AutoCompleteCustomSource.AddRange(new string[] {
             "@gmail.com"});
-            this.txtCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCorreo.Location = new System.Drawing.Point(14, 26);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(230, 16);
-            this.txtCorreo.TabIndex = 1;
-            this.txtCorreo.TextChanged += new System.EventHandler(this.txtCorreo_TextChanged);
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsuario.Location = new System.Drawing.Point(14, 26);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(230, 16);
+            this.txtUsuario.TabIndex = 1;
             // 
-            // button1
+            // bntIniciarSesion
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(149)))), ((int)(((byte)(246)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(41, 221);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(256, 40);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Iniciar sesión";
-            this.button1.UseVisualStyleBackColor = false;
+            this.bntIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(149)))), ((int)(((byte)(246)))));
+            this.bntIniciarSesion.FlatAppearance.BorderSize = 0;
+            this.bntIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bntIniciarSesion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bntIniciarSesion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bntIniciarSesion.Location = new System.Drawing.Point(41, 221);
+            this.bntIniciarSesion.Name = "bntIniciarSesion";
+            this.bntIniciarSesion.Size = new System.Drawing.Size(256, 40);
+            this.bntIniciarSesion.TabIndex = 3;
+            this.bntIniciarSesion.Text = "Iniciar sesión";
+            this.bntIniciarSesion.UseVisualStyleBackColor = false;
+            this.bntIniciarSesion.Click += new System.EventHandler(this.bntIniciarSesion_Click);
             // 
             // pictureBox2
             // 
@@ -327,8 +325,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Button bntIniciarSesion;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtContraseña;
