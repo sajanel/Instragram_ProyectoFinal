@@ -99,106 +99,106 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox2.Location = new System.Drawing.Point(288, 103);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(208, 189);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
             // lbUsuario
             // 
             this.lbUsuario.AutoSize = true;
-            this.lbUsuario.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbUsuario.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbUsuario.Location = new System.Drawing.Point(591, 123);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(83, 30);
+            this.lbUsuario.Size = new System.Drawing.Size(81, 24);
             this.lbUsuario.TabIndex = 3;
             this.lbUsuario.Text = "Usuario";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(619, 167);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 25);
+            this.label2.Size = new System.Drawing.Size(56, 22);
             this.label2.TabIndex = 4;
             this.label2.Text = "posts";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(738, 167);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 25);
+            this.label3.Size = new System.Drawing.Size(107, 22);
             this.label3.TabIndex = 5;
             this.label3.Text = "seguidores";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(882, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 25);
+            this.label4.Size = new System.Drawing.Size(89, 22);
             this.label4.TabIndex = 6;
             this.label4.Text = "seguidos";
             // 
             // lbPosts
             // 
             this.lbPosts.AutoSize = true;
-            this.lbPosts.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbPosts.ForeColor = System.Drawing.Color.Black;
+            this.lbPosts.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbPosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbPosts.Location = new System.Drawing.Point(591, 167);
             this.lbPosts.Name = "lbPosts";
-            this.lbPosts.Size = new System.Drawing.Size(22, 25);
+            this.lbPosts.Size = new System.Drawing.Size(18, 19);
             this.lbPosts.TabIndex = 7;
             this.lbPosts.Text = "0";
             // 
             // lbSeguidores
             // 
             this.lbSeguidores.AutoSize = true;
-            this.lbSeguidores.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbSeguidores.ForeColor = System.Drawing.Color.Black;
+            this.lbSeguidores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbSeguidores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbSeguidores.Location = new System.Drawing.Point(710, 167);
             this.lbSeguidores.Name = "lbSeguidores";
-            this.lbSeguidores.Size = new System.Drawing.Size(22, 25);
+            this.lbSeguidores.Size = new System.Drawing.Size(18, 19);
             this.lbSeguidores.TabIndex = 8;
             this.lbSeguidores.Text = "0";
             // 
             // lbSeguidos
             // 
             this.lbSeguidos.AutoSize = true;
-            this.lbSeguidos.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbSeguidos.ForeColor = System.Drawing.Color.Black;
+            this.lbSeguidos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbSeguidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbSeguidos.Location = new System.Drawing.Point(854, 167);
             this.lbSeguidos.Name = "lbSeguidos";
-            this.lbSeguidos.Size = new System.Drawing.Size(22, 25);
+            this.lbSeguidos.Size = new System.Drawing.Size(18, 19);
             this.lbSeguidos.TabIndex = 9;
             this.lbSeguidos.Text = "0";
             // 
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
-            this.lbNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbNombre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbNombre.ForeColor = System.Drawing.Color.Black;
-            this.lbNombre.Location = new System.Drawing.Point(591, 234);
+            this.lbNombre.Location = new System.Drawing.Point(591, 208);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(81, 25);
+            this.lbNombre.Size = new System.Drawing.Size(85, 23);
             this.lbNombre.TabIndex = 10;
             this.lbNombre.Text = "Nombre";
             // 
             // lbDescripcion
             // 
             this.lbDescripcion.AutoSize = true;
-            this.lbDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbDescripcion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.lbDescripcion.Location = new System.Drawing.Point(591, 267);
+            this.lbDescripcion.Location = new System.Drawing.Point(591, 241);
             this.lbDescripcion.Name = "lbDescripcion";
-            this.lbDescripcion.Size = new System.Drawing.Size(91, 21);
+            this.lbDescripcion.Size = new System.Drawing.Size(100, 21);
             this.lbDescripcion.TabIndex = 11;
             this.lbDescripcion.Text = "Descripcion";
             // 
@@ -211,6 +211,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.btnEditarPerfil.TabIndex = 12;
             this.btnEditarPerfil.Text = "Editar Perfil";
             this.btnEditarPerfil.UseVisualStyleBackColor = true;
+            this.btnEditarPerfil.Click += new System.EventHandler(this.btnEditarPerfil_Click);
             // 
             // pictureBox3
             // 
@@ -265,8 +266,8 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(859, 417);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(910, 468);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
