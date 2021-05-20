@@ -16,7 +16,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
 {
     public partial class Login_Inicio : Form
     {
-        ArbolAvl arbolUsuarios;
+        ArbolAvl arbolUsuarios = new ArbolAvl();
         Informacion_Usuario objUsuarioXml;
         public Login_Inicio()
         {
@@ -132,7 +132,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
 
                 doc.Save(@"UsuarioTemp.xml");
 
-                PerfilUsuario Formulario = new PerfilUsuario();
+                Navegation Formulario = new Navegation();
                 Formulario.Show();
                 this.Hide();
             }
@@ -173,7 +173,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
 
         private void Login_Inicio_Load(object sender, EventArgs e)
         {
-            arbolUsuarios = new ArbolAvl();
+            //arbolUsuarios = new ArbolAvl();
         }
     }
     }

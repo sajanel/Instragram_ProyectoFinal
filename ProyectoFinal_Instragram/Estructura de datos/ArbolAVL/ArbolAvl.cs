@@ -178,7 +178,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
 
                 }
             }
-            else throw new Exception("No puede haber claves repetidas ");
+      
 
             return raiz;
         }
@@ -204,7 +204,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
                 return null;
             else if (buscado.ContraseñaIgual(raizSub.valorNodo()) && buscado.UsuarioIgual(raizSub.valorNodo()))
                 return raizSub;
-            else if (buscado.ContraseñaDiferente(raizSub.valorNodo()) || buscado.UsuarioIgual(raizSub.valorNodo()))
+            else if (buscado.UsuarioMenor(raizSub.valorNodo()))
                 return buscar(raizSub.subarbolIzq(), buscado);
             else 
                 return buscar(raizSub.subarbolDch(), buscado);

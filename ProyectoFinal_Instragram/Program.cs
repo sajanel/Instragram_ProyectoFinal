@@ -19,7 +19,8 @@ namespace ProyectoFinal_Instragram
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Inicio());
+           // Application.Run(new Login_Inicio());
+            Application.Run(new Navegation());
             //Application.Run(new Login_CrearCuenta());
             //Application.Run(new PerfilUsuario());
         }
