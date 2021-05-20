@@ -301,6 +301,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.Name = "Login_Inicio";
             this.Text = "Login_Inicio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Login_Inicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

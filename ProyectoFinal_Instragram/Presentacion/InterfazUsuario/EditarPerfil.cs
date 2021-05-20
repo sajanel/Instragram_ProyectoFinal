@@ -88,16 +88,13 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
             XmlNode usser = doc.CreateElement("usuario");
 
-
-            XmlElement xmlNombre = doc.CreateElement("Nombre");
-            xmlNombre.InnerText = nombre;
-            usser.AppendChild(xmlNombre);
-
-
             XmlElement xmlUsuario = doc.CreateElement("Usuario");
             xmlUsuario.InnerText = usuario;
             usser.AppendChild(xmlUsuario);
 
+            XmlElement xmlNombre = doc.CreateElement("Nombre");
+            xmlNombre.InnerText = nombre;
+            usser.AppendChild(xmlNombre);
 
             XmlElement xmlBiografia = doc.CreateElement("Biografia");
             xmlBiografia.InnerText = biografia;

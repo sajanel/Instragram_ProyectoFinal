@@ -39,16 +39,16 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel7 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtCrearContraseña = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNomUsuario = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtFechaNacimiento = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.Contenidor1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNomPersona = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -141,7 +141,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel7.Controls.Add(this.label4);
             this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.txtCrearContraseña);
+            this.panel7.Controls.Add(this.txtContraseña);
             this.panel7.Location = new System.Drawing.Point(109, 306);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(256, 49);
@@ -170,23 +170,23 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.label5.TabIndex = 3;
             this.label5.Text = "Contraseña";
             // 
-            // txtCrearContraseña
+            // txtContraseña
             // 
-            this.txtCrearContraseña.AutoCompleteCustomSource.AddRange(new string[] {
+            this.txtContraseña.AutoCompleteCustomSource.AddRange(new string[] {
             "@gmail.com"});
-            this.txtCrearContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtCrearContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCrearContraseña.Location = new System.Drawing.Point(13, 26);
-            this.txtCrearContraseña.Name = "txtCrearContraseña";
-            this.txtCrearContraseña.PasswordChar = '*';
-            this.txtCrearContraseña.Size = new System.Drawing.Size(174, 16);
-            this.txtCrearContraseña.TabIndex = 1;
+            this.txtContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtContraseña.Location = new System.Drawing.Point(13, 26);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.Size = new System.Drawing.Size(174, 16);
+            this.txtContraseña.TabIndex = 1;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.txtNomUsuario);
+            this.panel6.Controls.Add(this.txtUsuario);
             this.panel6.Location = new System.Drawing.Point(109, 249);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(256, 51);
@@ -203,22 +203,22 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.label3.TabIndex = 2;
             this.label3.Text = "Nombre usuario";
             // 
-            // txtNomUsuario
+            // txtUsuario
             // 
-            this.txtNomUsuario.AutoCompleteCustomSource.AddRange(new string[] {
+            this.txtUsuario.AutoCompleteCustomSource.AddRange(new string[] {
             "@gmail.com"});
-            this.txtNomUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtNomUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNomUsuario.Location = new System.Drawing.Point(14, 26);
-            this.txtNomUsuario.Name = "txtNomUsuario";
-            this.txtNomUsuario.Size = new System.Drawing.Size(230, 16);
-            this.txtNomUsuario.TabIndex = 1;
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsuario.Location = new System.Drawing.Point(14, 26);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(230, 16);
+            this.txtUsuario.TabIndex = 1;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.txtFechaNacimiento);
+            this.panel5.Controls.Add(this.txtNombre);
             this.panel5.Location = new System.Drawing.Point(109, 192);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(256, 51);
@@ -231,26 +231,26 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.label2.Location = new System.Drawing.Point(13, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 14);
+            this.label2.Size = new System.Drawing.Size(101, 14);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha de nacimiento";
+            this.label2.Text = "Nombre Completo";
             // 
-            // txtFechaNacimiento
+            // txtNombre
             // 
-            this.txtFechaNacimiento.AutoCompleteCustomSource.AddRange(new string[] {
+            this.txtNombre.AutoCompleteCustomSource.AddRange(new string[] {
             "@gmail.com"});
-            this.txtFechaNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtFechaNacimiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(14, 26);
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(230, 16);
-            this.txtFechaNacimiento.TabIndex = 1;
+            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre.Location = new System.Drawing.Point(14, 26);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(230, 16);
+            this.txtNombre.TabIndex = 1;
             // 
             // Contenidor1
             // 
             this.Contenidor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Contenidor1.Controls.Add(this.label1);
-            this.Contenidor1.Controls.Add(this.txtNomPersona);
+            this.Contenidor1.Controls.Add(this.txtCorreo);
             this.Contenidor1.Location = new System.Drawing.Point(109, 135);
             this.Contenidor1.Name = "Contenidor1";
             this.Contenidor1.Size = new System.Drawing.Size(256, 51);
@@ -263,20 +263,20 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 14);
+            this.label1.Size = new System.Drawing.Size(42, 14);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre completo";
+            this.label1.Text = "Correo";
             // 
-            // txtNomPersona
+            // txtCorreo
             // 
-            this.txtNomPersona.AutoCompleteCustomSource.AddRange(new string[] {
+            this.txtCorreo.AutoCompleteCustomSource.AddRange(new string[] {
             "@gmail.com"});
-            this.txtNomPersona.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtNomPersona.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNomPersona.Location = new System.Drawing.Point(14, 26);
-            this.txtNomPersona.Name = "txtNomPersona";
-            this.txtNomPersona.Size = new System.Drawing.Size(230, 16);
-            this.txtNomPersona.TabIndex = 1;
+            this.txtCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCorreo.Location = new System.Drawing.Point(14, 26);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(230, 16);
+            this.txtCorreo.TabIndex = 1;
             // 
             // pictureBox2
             // 
@@ -350,6 +350,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.Name = "Login_CrearCuenta";
             this.Text = "Login_CrearCuenta";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Login_CrearCuenta_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -372,17 +373,17 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNomUsuario;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtFechaNacimiento;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Panel Contenidor1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNomPersona;
+        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCrearContraseña;
+        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button bntRegistrarUsuario;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnPaginaInicio;
