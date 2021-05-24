@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoFinal_Instragram.Presentacion.Login;
 using System.Xml;
+using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 
 namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 {
     public partial class Navegation : Form
     {
+        AuxXml miXmlTemp;
         public Navegation()
         {
             InitializeComponent();
@@ -21,7 +23,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void PerfilUsuario_Load(object sender, EventArgs e)
         {
+            miXmlTemp = new AuxXml();
             PanelOpciones.Visible = false;
+            //miXmlTemp.leerXml("UsuarioTemp");
             using (XmlReader reader = XmlReader.Create(@"UsuarioTemp.xml"))
             {
                 while (reader.Read())
@@ -38,7 +42,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                                 lbUsuario.Text = reader.ReadString();
                                 break;
                             case "Biografia":
-                              //  lbDescripcion.Text = reader.ReadString();
+                                //  lbDescripcion.Text = reader.ReadString();
                                 break;
                             case "Correo":
                                 break;
@@ -89,11 +93,16 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            miXmlTemp.eliminarXml("UsuarioTemp");
+
             Login_Inicio Formulario = new Login_Inicio();
             Formulario.Show();
             this.Hide();
         }
 
-       
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

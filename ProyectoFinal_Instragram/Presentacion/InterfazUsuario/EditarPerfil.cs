@@ -35,7 +35,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                     return;
                 }
 
-                string nuevaRuta = Path.Combine(@"FotosPerfil", buscarFoto.SafeFileName);
+                string nuevaRuta = Path.Combine(@"Perfiles", buscarFoto.SafeFileName);
 
                 if (!File.Exists(nuevaRuta))
                 {
@@ -50,6 +50,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
+            //ELIMINAR LOS DATOS DEL ARBOL Y LUEGO LEER OTRA VEZ EL XML USUARIOSINTA
+            
+
             try
             {
                 doc = new XmlDocument();
@@ -152,7 +155,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            PerfilUsuario Formulario = new PerfilUsuario();
+            Navegation Formulario = new Navegation();
             Formulario.Show();
             this.Hide();
         }

@@ -56,5 +56,12 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             Formulario.Show();
             this.Hide();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Navegation Formulario = new Navegation();
+            Formulario.Show();
+            this.Hide();
+        }
     }
 }

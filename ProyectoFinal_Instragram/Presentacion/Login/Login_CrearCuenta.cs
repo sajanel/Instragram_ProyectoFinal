@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,19 +11,21 @@ using System.Windows.Forms;
 using System.Xml;
 using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 
 namespace ProyectoFinal_Instragram.Presentacion.Login
 {
     public partial class Login_CrearCuenta : Form
     {
-        ArbolAvl arbol;
-        Informacion_Usuario objUsuario;
-        Informacion_Usuario objUsuarioXml;
+        AuxXml miXml;
+        ClaseUsuario objUsuario;
+        OpenFileDialog buscarFoto;
+        string urlFoto = "";
         public Login_CrearCuenta()
         {
             InitializeComponent();
         }
-        XmlDocument doc;
+
         private void label4_Click(object sender, EventArgs e)
         {
             // verifica que la contraseña este encriptada y la muestra
@@ -45,111 +48,66 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             Login_Inicio login_Inicio = new Login_Inicio();
             login_Inicio.Show();
         }
-        string correo;
-        string nombre;
-        string usuario;
-        string contraseña;
-        string img;
-        private void leerXml()
-        {
-            
 
-            using (XmlReader reader = XmlReader.Create(@"UsuariosInsta.xml"))
-            {
-                while (reader.Read())
-                {
-                    if (reader.IsStartElement())
-                    {
-                        //return only when you have START tag  
-                        switch (reader.Name.ToString())
-                        {
-                            case "Usuario":
-                                usuario = reader.ReadString();
-                                break;
-                            case "Nombre":
-                                nombre = reader.ReadString();
-                                break;
-                            case "Biografia":
-                                break;
-                            case "Correo":
-                                correo = reader.ReadString();
-                                break;
-                            case "Contraseña":
-                                contraseña = reader.ReadString();
-                                break;
-                            case "Img":
-                                img = reader.ReadString();
-                                objUsuarioXml = new Informacion_Usuario(correo, nombre, usuario, contraseña, img);
-                                arbol.insertar(objUsuarioXml);
-                                correo = "";
-                                nombre = "";
-                                usuario = "";
-                                contraseña = "";
-                                img = "";
-                                break;
-                        }
-                        
-                    }
-                    
-                }
-            }
-        }
+
         private void bntRegistrarUsuario_Click(object sender, EventArgs e)
         {
             //Aca deberia leer un xml e insetarlo en un arbol
             //y permitir colocar un foto de usuario y almacenarlo en el xml
-            doc = new XmlDocument();
-            doc.Load(@"UsuariosInsta.xml");
 
-            XmlNode empleado = nuevoUsuario(txtUsuario.Text, txtNombre.Text, txtCorreo.Text,txtContraseña.Text);
-            XmlNode nodoRaiz = doc.DocumentElement;
+            //CREAR XML
+            //miXml.crearXml("UsuariosInsta");
+            //miXml.leerXml("UsuariosInsta");
 
-            nodoRaiz.InsertAfter(empleado, nodoRaiz.LastChild);
-            doc.Save(@"UsuariosInsta.xml");
+            miXml.crearCarpeta(txtUsuario.Text, "UsuariosInsta");
 
-            leerXml();
+            urlFoto = buscarFoto.FileName;
+            string nuevaRuta = Path.Combine(@"Perfiles/" + txtUsuario.Text, buscarFoto.SafeFileName);
 
-            objUsuario = new Informacion_Usuario(txtCorreo.Text, txtNombre.Text, txtUsuario.Text,
-                txtContraseña.Text, "direccion imagen");
-                        
+            string urlImg = "Perfiles/" + txtUsuario.Text + "/" + Path.GetFileName(urlFoto);
+
+            if (!File.Exists(nuevaRuta))
+            {
+                File.Copy(urlFoto, nuevaRuta);
+            }
+            else
+            {
+                MessageBox.Show("La ruta de destino ya contiene un archivo con el mismo nombre.");
+            }
+
+            miXml.añadirUsuario(txtUsuario.Text, txtNombre.Text, "", txtCorreo.Text, txtContraseña.Text, urlImg, "UsuariosInsta");
+            objUsuario = new ClaseUsuario(txtCorreo.Text, txtNombre.Text, txtUsuario.Text, txtContraseña.Text, "");
+            Program.objArbolAvl.insertar(objUsuario);
+
             
-            //arbol.insertar(objUsuario);
         }
-        private XmlNode nuevoUsuario(string usuario, string nombre, string correo, string contraseña)
-        {
 
-            XmlNode usser = doc.CreateElement("usuario");
-
-            XmlElement xmlUsuario = doc.CreateElement("Usuario");
-            xmlUsuario.InnerText = usuario;
-            usser.AppendChild(xmlUsuario);
-
-            XmlElement xmlNombre = doc.CreateElement("Nombre");
-            xmlNombre.InnerText = nombre;
-            usser.AppendChild(xmlNombre);
-
-            XmlElement xmlBiografia = doc.CreateElement("Biografia");
-            xmlBiografia.InnerText = "";
-            usser.AppendChild(xmlBiografia);
-
-            XmlElement xmlCorreo = doc.CreateElement("Correo");
-            xmlCorreo.InnerText = correo;
-            usser.AppendChild(xmlCorreo);
-
-            XmlElement xmlContraseña = doc.CreateElement("Contraseña");
-            xmlContraseña.InnerText = contraseña;
-            usser.AppendChild(xmlContraseña);
-
-            XmlElement xmlImg = doc.CreateElement("Img");
-            xmlImg.InnerText = "";
-            usser.AppendChild(xmlImg);
-
-
-            return usser;
-        }
         private void Login_CrearCuenta_Load(object sender, EventArgs e)
         {
-            arbol = new ArbolAvl();
+            objUsuario = new ClaseUsuario();
+            Program.objUsuarioXml2 = new ClaseUsuario();
+            Program.objArbolAvl = new ArbolAvl();
+            miXml = new AuxXml();
+        }
+
+        
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+            buscarFoto = new OpenFileDialog();
+            if (buscarFoto.ShowDialog() == DialogResult.OK)
+            {
+                urlFoto = buscarFoto.FileName;
+                txtFoto.Text = urlFoto;
+                string extension = Path.GetExtension(buscarFoto.FileName);
+
+                if (!extension.Equals(".png") && !extension.Equals(".jpg") && !extension.Equals(".PNG") && !extension.Equals(".jpeg"))
+                {
+                    MessageBox.Show("Sólo se admiten archivos en formatos .png, .jpg, .jpeg");
+                    return;
+                }
+                
+
+            }
         }
     }
 }
