@@ -8,11 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
 
 namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 {
     public partial class PerfilUsuario : Form
     {
+        //Instancias de objetos y de clases
+
+        ClaseUsuario infoUsuario = new ClaseUsuario();
+        PublicacionesUsuario publicacionesUsuario = new PublicacionesUsuario();
+        listaDoble listaPublicaciones = new listaDoble();
+        NodoDoble miNodoUsuario;
+
         public PerfilUsuario()
         {
             InitializeComponent();
@@ -63,5 +72,14 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             Formulario.Show();
             this.Hide();
         }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            PublicacionesUsuario Formulario = new PublicacionesUsuario();
+            Formulario.Show();
+            this.Hide();
+        }
+
+       
     }
 }

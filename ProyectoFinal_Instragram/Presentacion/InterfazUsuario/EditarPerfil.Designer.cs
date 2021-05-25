@@ -51,10 +51,21 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.auxUsuario = new System.Windows.Forms.TextBox();
+            this.txtComentario = new System.Windows.Forms.TextBox();
+            this.btnSubir = new System.Windows.Forms.Button();
+            this.txtPublicaciones = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -279,10 +290,95 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.panel2.Controls.Add(this.txtBiografia);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtCorreo);
-            this.panel2.Location = new System.Drawing.Point(245, 112);
+            this.panel2.Location = new System.Drawing.Point(375, 164);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(842, 545);
             this.panel2.TabIndex = 23;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.txtPublicaciones);
+            this.panel3.Controls.Add(this.txtComentario);
+            this.panel3.Controls.Add(this.btnSubir);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Location = new System.Drawing.Point(375, 114);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(441, 351);
+            this.panel3.TabIndex = 24;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(11, 29);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(208, 189);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(244, 57);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 29);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Examinar Foto";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(183, 369);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Editar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(273, 369);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "Publicar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // auxUsuario
+            // 
+            this.auxUsuario.Location = new System.Drawing.Point(195, 324);
+            this.auxUsuario.Name = "auxUsuario";
+            this.auxUsuario.Size = new System.Drawing.Size(100, 23);
+            this.auxUsuario.TabIndex = 25;
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.Location = new System.Drawing.Point(259, 112);
+            this.txtComentario.Multiline = true;
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(142, 104);
+            this.txtComentario.TabIndex = 23;
+            // 
+            // btnSubir
+            // 
+            this.btnSubir.Location = new System.Drawing.Point(259, 223);
+            this.btnSubir.Name = "btnSubir";
+            this.btnSubir.Size = new System.Drawing.Size(144, 44);
+            this.btnSubir.TabIndex = 22;
+            this.btnSubir.Text = "Subir publicacion";
+            this.btnSubir.UseVisualStyleBackColor = true;
+            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
+            // 
+            // txtPublicaciones
+            // 
+            this.txtPublicaciones.Location = new System.Drawing.Point(48, 235);
+            this.txtPublicaciones.Name = "txtPublicaciones";
+            this.txtPublicaciones.Size = new System.Drawing.Size(100, 23);
+            this.txtPublicaciones.TabIndex = 24;
             // 
             // EditarPerfil
             // 
@@ -290,6 +386,10 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(935, 449);
+            this.Controls.Add(this.auxUsuario);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "EditarPerfil";
@@ -303,7 +403,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -330,5 +434,14 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox auxUsuario;
+        private System.Windows.Forms.TextBox txtComentario;
+        private System.Windows.Forms.Button btnSubir;
+        private System.Windows.Forms.TextBox txtPublicaciones;
     }
 }

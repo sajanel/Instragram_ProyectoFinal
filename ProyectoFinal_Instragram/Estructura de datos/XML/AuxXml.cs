@@ -59,6 +59,31 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
 
             auxDoc.Save(rutaXml);
         }
+        //
+        public void añadirPublicacion(string imgPublicacion,string comenUsuario, string nombreXml,string user) 
+        {
+            auxDoc = new XmlDocument();
+            rutaXml = @"" + nombreXml + ".xml";
+            auxDoc.Load(rutaXml);
+
+            XmlElement empleados = auxDoc.DocumentElement;
+
+            XmlNodeList listaEmpleados = auxDoc.SelectNodes("Usuarios/usuario");
+
+            XmlNode nuevo_empleado = nuevaPublicacion(imgPublicacion, comenUsuario);
+
+            XmlNode nodoRaiz = auxDoc.SelectSingleNode("Usuarios/usuario/Publicacion");
+            foreach (XmlNode item in listaEmpleados)
+            {
+                if (item.FirstChild.InnerText == user)
+                {
+                    XmlNode nodoOld = item.SelectSingleNode("Publicacion");
+                    nodoOld.InsertBefore(nuevo_empleado, nodoOld.FirstChild);
+                }
+                auxDoc.Save(rutaXml);
+            }
+        }
+
         public void crearCarpeta(string usuario, string nombreXml)
         {
             if (nombreXml == "UsuariosInsta")
@@ -103,7 +128,20 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             auxImg.InnerText = img;
             nuevoUsuario.AppendChild(auxImg);
 
+            XmlElement auxPublic = auxDoc.CreateElement("Publicacion");
+            auxPublic.InnerText = "";
+            nuevoUsuario.AppendChild(auxPublic);
+
             return nuevoUsuario;
+        }
+
+        //
+        public XmlNode nuevaPublicacion(string publi,string comentario)
+        {
+            XmlElement Aux = auxDoc.CreateElement("publicacion");
+            Aux.InnerText = publi+","+comentario;
+
+            return Aux;
         }
 
         string correo,nombre,usuario,contraseña,img;

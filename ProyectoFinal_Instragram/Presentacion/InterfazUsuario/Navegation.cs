@@ -50,6 +50,8 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                                 ProfileUser.WaitOnLoad = false;
                                 ProfileUser.LoadAsync(@"" + reader.ReadString());
                                 break;
+                            case "Publicaciones":
+                                break;
                         }
                     }
                 }

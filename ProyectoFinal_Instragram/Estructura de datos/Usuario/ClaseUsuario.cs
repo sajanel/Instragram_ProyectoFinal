@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
 
 namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
 {
@@ -14,6 +15,11 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
         public string usuario { get; set; }
         public string contraseña { get; set; }
         public string imagenProfile { get; set; }
+     
+        //Lista doble de para las publicaciones del usuario
+        public listaDoble miLista;
+        public string comentarioUsuario { get; set; }
+        public string imgPublicacion { get; set; }
 
         public ClaseUsuario(string correo, string nombre, string usuario, string contraseña, string imagenProfile)
         {
@@ -26,8 +32,20 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
 
         public ClaseUsuario()
         {
+            miLista = new listaDoble();
         }
 
+        //Insercion de los datos a una lista doble
+        public listaDoble instarPublicacion(string comenUsuario,string imgPublica)
+        {
+            comentarioUsuario = comenUsuario;
+            imgPublicacion = imgPublica;
+
+            PublicacionesUsuario inforPublic = new PublicacionesUsuario(comenUsuario, imgPublica);
+            miLista.insertarAlInicio(inforPublic);
+            return miLista;
+
+        }
         public ClaseUsuario(string correoUsuario, string contraseñaUsuario)
         {
             this.correo = correoUsuario;

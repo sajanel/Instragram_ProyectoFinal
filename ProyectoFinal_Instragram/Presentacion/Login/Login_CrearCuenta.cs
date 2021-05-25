@@ -67,6 +67,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             string urlImg = "Perfiles/" + txtUsuario.Text + "/" + Path.GetFileName(urlFoto);
 
             if (!File.Exists(nuevaRuta))
+            
             {
                 File.Copy(urlFoto, nuevaRuta);
             }

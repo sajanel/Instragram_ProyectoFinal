@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble
 {
-    class NodoDoble
+  public class NodoDoble
     {
         public object dato;
         public NodoDoble siguiente;
