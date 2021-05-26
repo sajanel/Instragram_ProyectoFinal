@@ -10,17 +10,15 @@ using System.Windows.Forms;
 using System.Xml;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
+using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 
 namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 {
     public partial class PerfilUsuario : Form
     {
         //Instancias de objetos y de clases
-
-        ClaseUsuario infoUsuario = new ClaseUsuario();
-        PublicacionesUsuario publicacionesUsuario = new PublicacionesUsuario();
-        listaDoble listaPublicaciones = new listaDoble();
-        NodoDoble miNodoUsuario;
+        AuxXml miXml = new AuxXml();
+     
 
         public PerfilUsuario()
         {
@@ -29,6 +27,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void PerfilUsuario_Load(object sender, EventArgs e)
         {
+            AuxXml aux = new AuxXml();
+
+            // aux.leerXml("UsuarioTemp");
             using (XmlReader reader = XmlReader.Create(@"UsuarioTemp.xml"))
             {
                 while (reader.Read())
@@ -75,7 +76,40 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
-           
+            
+            if ("Sergio" == txtBusqueda.Text)
+            {
+                MessageBox.Show("Si son iugales");
+            }
+
         }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            miXml.añadirInfoAmigo(txtComentario.Text, "Siguiendo", "seguir", "UsuariosInsta", lbUsuario.Text);
+        }
+
+        private void btnSeguidor_Click(object sender, EventArgs e)
+        {
+         
+            miXml.añadirInfoAmigo(txtComentario.Text, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
+        
+        }
+
+
+        //Codigo utilizado para los seguidores y seguiendo
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    miXml.añadirInfoAmigo(txtComentario.Text, "Siguiendo", "seguir", "UsuariosInsta", lbUsuario.Text);
+        //}
+
+        //private void btnSeguidor_Click(object sender, EventArgs e)
+        //{
+
+        //    miXml.añadirInfoAmigo(txtComentario.Text, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
+
+        //}
     }
 }

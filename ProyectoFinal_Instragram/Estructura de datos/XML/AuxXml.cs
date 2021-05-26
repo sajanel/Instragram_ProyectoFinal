@@ -72,7 +72,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
 
             XmlNode nuevo_empleado = nuevaPublicacion(imgPublicacion, comenUsuario);
 
-            XmlNode nodoRaiz = auxDoc.SelectSingleNode("Usuarios/usuario/Publicacion");
+          //  XmlNode nodoRaiz = auxDoc.SelectSingleNode("Usuarios/usuario/Publicacion");
             foreach (XmlNode item in listaEmpleados)
             {
                 if (item.FirstChild.InnerText == user)
@@ -83,6 +83,31 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                 auxDoc.Save(rutaXml);
             }
         }
+
+        public void añadirInfoAmigo(string infAmigo, string datoCambiante, string datoAmigo, string nombreXml, string user)
+        {
+            auxDoc = new XmlDocument();
+            rutaXml = @"" + nombreXml + ".xml";
+            auxDoc.Load(rutaXml);
+
+         //   XmlElement empleados = auxDoc.DocumentElement;
+
+            XmlNodeList listaEmpleados = auxDoc.SelectNodes("Usuarios/usuario");
+
+            XmlNode nuevo_empleado = nuevosSeguidores(infAmigo,datoAmigo);
+
+            //XmlNode nodoRaiz = auxDoc.SelectSingleNode("Usuarios/usuario/"+datoCambiante+"/"+datoAmigo);
+            foreach (XmlNode item in listaEmpleados)
+            {
+                if (item.FirstChild.InnerText == user)
+                {
+                    XmlNode nodoOld = item.SelectSingleNode(datoCambiante);
+                    nodoOld.InsertBefore(nuevo_empleado, nodoOld.FirstChild);
+                }
+                auxDoc.Save(rutaXml);
+            }
+        }
+
 
         public void crearCarpeta(string usuario, string nombreXml)
         {
@@ -132,18 +157,45 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             auxPublic.InnerText = "";
             nuevoUsuario.AppendChild(auxPublic);
 
+            XmlElement auxSeguidor = auxDoc.CreateElement("Siguiendo");
+            auxSeguidor.InnerText = "";
+            nuevoUsuario.AppendChild(auxSeguidor);
+
+            XmlElement auxSiguiendo= auxDoc.CreateElement("Seguidores");
+            auxSiguiendo.InnerText = "";
+            nuevoUsuario.AppendChild(auxSiguiendo);
+
             return nuevoUsuario;
         }
 
         //
         public XmlNode nuevaPublicacion(string publi,string comentario)
         {
+
             XmlElement Aux = auxDoc.CreateElement("publicacion");
             Aux.InnerText = publi+","+comentario;
 
             return Aux;
         }
 
+        public XmlNode nuevosSeguidores(string infAmigo,string datoAmigo)
+        {
+            /*
+                <Seguidores>           
+                    <seguidor> 1 </seguidor>  string datoAmigo
+                </seguidores>
+               
+                <Siguiendo>         
+                    <seguir> 2 </seguir>     string datoAmigo
+                </Siguiendo>
+             */
+            //Aca le enviamos una variable indicandole si va a ser seguidor o seguido   
+
+            XmlElement auxAmigo = auxDoc.CreateElement(datoAmigo);
+            auxAmigo.InnerText = infAmigo;
+         
+            return auxAmigo;
+        }
         string correo,nombre,usuario,contraseña,img;
       
         public void leerXml(string nombreXml)
