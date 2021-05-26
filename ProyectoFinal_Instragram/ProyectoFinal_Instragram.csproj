@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Estructura de datos\TablaHash\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Presentacion\InterfazUsuario\Navegation.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -79,6 +79,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             miXml.añadirUsuario(txtUsuario.Text, txtNombre.Text, "", txtCorreo.Text, txtContraseña.Text, urlImg, "UsuariosInsta");
             objUsuario = new ClaseUsuario(txtCorreo.Text, txtNombre.Text, txtUsuario.Text, txtContraseña.Text, "");
             Program.objArbolAvl.insertar(objUsuario);
+           
+            SalirFomulario();
 
             
         }
@@ -91,6 +93,14 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             miXml = new AuxXml();
         }
 
+        public void SalirFomulario() 
+        {
+            MessageBox.Show("Accesos de cuenta","Se ha creado exitosamente su usuario",MessageBoxButtons.OK);
+            this.Hide();
+            Login_Inicio Formulario = new Login_Inicio();
+            Formulario.Show();
+            
+        }
         
         private void btnExaminar_Click(object sender, EventArgs e)
         {
