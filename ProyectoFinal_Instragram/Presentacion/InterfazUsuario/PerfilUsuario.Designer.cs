@@ -32,7 +32,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilUsuario));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,23 +76,24 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtBusqueda);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1364, 77);
             this.panel1.TabIndex = 1;
             // 
-            // textBox1
+            // txtBusqueda
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(547, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Search";
-            this.textBox1.Size = new System.Drawing.Size(314, 23);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.ForeColor = System.Drawing.Color.Black;
+            this.txtBusqueda.Location = new System.Drawing.Point(547, 27);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.PlaceholderText = "Search";
+            this.txtBusqueda.Size = new System.Drawing.Size(314, 23);
+            this.txtBusqueda.TabIndex = 2;
+            this.txtBusqueda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // pictureBox2
             // 
@@ -272,7 +273,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(978, 536);
+            this.ClientSize = new System.Drawing.Size(995, 553);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
@@ -315,7 +316,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.Label label2;

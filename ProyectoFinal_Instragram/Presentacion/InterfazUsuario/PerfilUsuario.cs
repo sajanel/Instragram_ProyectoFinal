@@ -73,13 +73,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.Hide();
         }
 
-        private void pictureBox9_Click(object sender, EventArgs e)
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
-            PublicacionesUsuario Formulario = new PublicacionesUsuario();
-            Formulario.Show();
-            this.Hide();
+           
         }
-
-       
     }
 }

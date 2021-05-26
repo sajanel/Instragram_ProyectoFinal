@@ -95,7 +95,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
 
         public void SalirFomulario() 
         {
-            MessageBox.Show("Accesos de cuenta","Se ha creado exitosamente su usuario",MessageBoxButtons.OK);
+            MessageBox.Show("Se ha creado exitosamente su usuario","Accesos de cuenta",MessageBoxButtons.OK,MessageBoxIcon.Information);
             this.Hide();
             Login_Inicio Formulario = new Login_Inicio();
             Formulario.Show();
