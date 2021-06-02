@@ -135,6 +135,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void EditarPerfil_Load(object sender, EventArgs e)
         {
+            panel3.Visible = false;
             using (XmlReader reader = XmlReader.Create(@"UsuarioTemp.xml"))
             {
                 while (reader.Read())
@@ -206,8 +207,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                     MessageBox.Show("Sólo se admiten archivos en formatos .png, .jpg, .jpeg");
                     return;
                 }
-
             }
+            pictureBox3.WaitOnLoad = false;
+            pictureBox3.LoadAsync(@"" + urlFoto);
         }
 
         private void btnSubir_Click(object sender, EventArgs e)
@@ -232,6 +234,12 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             miXml.añadirPublicacion(urlImg, txtComentario.Text, "UsuariosInsta",auxUsuario.Text);
             listaPublicaciones = infoUsuario.instarPublicacion(txtComentario.Text, txtComentario.Text);
 
+            miXml.añadirPublicacion(urlImg, txtComentario.Text, "UsuarioTemp", auxUsuario.Text);
+            listaPublicaciones = infoUsuario.instarPublicacion(txtComentario.Text, txtComentario.Text);
+
+            ClaseUsuario objUsuario = new ClaseUsuario(auxUsuario.Text);
+            ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+            encontradoUsuario.insertarPublicaciones(urlImg + "," + txtComentario.Text);
         }
     }
 }

@@ -26,7 +26,8 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
         //Este metodo nos ayudara para tomar la informacion de la cadena
         public override string ToString()
         {
-            return comentarioPublicacion+","+ imagPublicacion;
+            return imagPublicacion;
+            //return comentarioPublicacion+","+ imagPublicacion;
         }
     }
 }

@@ -4,22 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
+using ProyectoFinal_Instragram.Estructura_de_datos.TablaHash;
 
 namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
 {
     public class ClaseUsuario : Comparador
     {
-
         public string correo { get; set; }
         public string nombre { get; set; }
         public string usuario { get; set; }
         public string contraseña { get; set; }
         public string imagenProfile { get; set; }
-     
-        //Lista doble de para las publicaciones del usuario
+
         public listaDoble miLista;
         public string comentarioUsuario { get; set; }
         public string imgPublicacion { get; set; }
+
+        public TablaDispercionColision tablaHashSeguidores;
+
+        public TablaDispercionColision tablaHashSeguidos;
 
         public ClaseUsuario(string correo, string nombre, string usuario, string contraseña, string imagenProfile)
         {
@@ -33,6 +36,8 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
         public ClaseUsuario()
         {
             miLista = new listaDoble();
+            tablaHashSeguidores = new TablaDispercionColision();
+            tablaHashSeguidos = new TablaDispercionColision();
         }
 
         //Insercion de los datos a una lista doble
@@ -46,12 +51,34 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
             return miLista;
 
         }
-        public ClaseUsuario(string correoUsuario, string contraseñaUsuario)
+        public void insertarPublicaciones(string publicacion)
         {
-            this.correo = correoUsuario;
+            string[] auxPublicacion = publicacion.Split(',');
+
+            comentarioUsuario = auxPublicacion[1];
+            imgPublicacion = auxPublicacion[0];
+
+            PublicacionesUsuario misPublicaciones = new PublicacionesUsuario(comentarioUsuario, imgPublicacion);
+            miLista.insertarAlInicio(misPublicaciones);
+        }
+        public void insertarSeguidores(string oj, string user)
+        {
+            tablaHashSeguidores.Insertar(oj, user);
+        }
+        public void insertarSiguiendo(string oj, string user)
+        {
+            tablaHashSeguidos.Insertar(oj, user);
+        }
+        public ClaseUsuario(string userUsuario, string contraseñaUsuario)
+        {
+            this.usuario = userUsuario;
             this.contraseña = contraseñaUsuario;
         }
-
+        //PARA BUSCAR USUARIO
+        public ClaseUsuario(string user)
+        {
+            this.usuario = user;
+        }
         public bool ContraseñaDiferente(object q)
         {
             ClaseUsuario info_Usuario = (ClaseUsuario)q;
@@ -67,32 +94,31 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
         public bool UsuarioDiferente(object q)
         {
             ClaseUsuario info_Usuario = (ClaseUsuario)q;
-            return (info_Usuario.correo.CompareTo(correo) != 0);
+            return (info_Usuario.usuario.CompareTo(usuario) != 0);
         }
 
         public bool UsuarioIgual(object q)
         {
             ClaseUsuario info_Usuario = (ClaseUsuario)q;
-            return (info_Usuario.correo.CompareTo(correo) == 0);
+            return (info_Usuario.usuario.CompareTo(usuario) == 0);
         }
 
 
         public bool UsuarioMayor(object q)
         {
             ClaseUsuario info_Usuario = (ClaseUsuario)q;
-            return (info_Usuario.correo.CompareTo(correo) == 1);
+            return (info_Usuario.usuario.CompareTo(usuario) == 1);
         }
         
         public bool UsuarioMenor(object q)
         {
             ClaseUsuario info_Usuario = (ClaseUsuario)q;
-            return (info_Usuario.correo.CompareTo(correo) == -1);
+            return (info_Usuario.usuario.CompareTo(usuario) == -1);
         }
 
         public string busquedaInfo()
         {
-            return correo+ "," + nombre + "," + usuario + "," + imagenProfile + "," +
-                contraseña;
+            return correo + ", " + nombre + ", " + usuario + ", " + imagenProfile + ", " + contraseña;
         }
     }
 }

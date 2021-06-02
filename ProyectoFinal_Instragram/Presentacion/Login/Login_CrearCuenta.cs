@@ -52,9 +52,6 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
 
         private void bntRegistrarUsuario_Click(object sender, EventArgs e)
         {
-            //Aca deberia leer un xml e insetarlo en un arbol
-            //y permitir colocar un foto de usuario y almacenarlo en el xml
-
             //CREAR XML
             //miXml.crearXml("UsuariosInsta");
             //miXml.leerXml("UsuariosInsta");

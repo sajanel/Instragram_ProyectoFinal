@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ProyectoFinal_Instragram.Estructura_de_datos.TablaHash.ListaSimple;
 namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash
 {
-    class TablaDispercionColision
+    public class TablaDispercionColision
     {
         public static readonly int M = 1024;
         public static readonly double R = 0.618034;

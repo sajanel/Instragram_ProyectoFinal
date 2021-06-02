@@ -52,14 +52,16 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPublicaciones = new System.Windows.Forms.TextBox();
+            this.txtComentario = new System.Windows.Forms.TextBox();
+            this.btnSubir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.auxUsuario = new System.Windows.Forms.TextBox();
-            this.txtComentario = new System.Windows.Forms.TextBox();
-            this.btnSubir = new System.Windows.Forms.Button();
-            this.txtPublicaciones = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -118,7 +120,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(467, 238);
+            this.label4.Location = new System.Drawing.Point(459, 236);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 24);
             this.label4.TabIndex = 7;
@@ -158,12 +160,12 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // btnEditarPerfil
             // 
             this.btnEditarPerfil.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditarPerfil.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEditarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditarPerfil.ForeColor = System.Drawing.Color.White;
             this.btnEditarPerfil.Location = new System.Drawing.Point(370, 493);
             this.btnEditarPerfil.Name = "btnEditarPerfil";
-            this.btnEditarPerfil.Size = new System.Drawing.Size(89, 40);
+            this.btnEditarPerfil.Size = new System.Drawing.Size(113, 40);
             this.btnEditarPerfil.TabIndex = 13;
             this.btnEditarPerfil.Text = "Aceptar";
             this.btnEditarPerfil.UseVisualStyleBackColor = false;
@@ -192,7 +194,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(344, 294);
+            this.label5.Location = new System.Drawing.Point(329, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(215, 24);
             this.label5.TabIndex = 15;
@@ -211,7 +213,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(357, 354);
+            this.label6.Location = new System.Drawing.Point(338, 352);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(206, 24);
             this.label6.TabIndex = 17;
@@ -230,7 +232,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(259, 412);
+            this.label7.Location = new System.Drawing.Point(231, 412);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(313, 24);
             this.label7.TabIndex = 19;
@@ -290,7 +292,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.panel2.Controls.Add(this.txtBiografia);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtCorreo);
-            this.panel2.Location = new System.Drawing.Point(375, 164);
+            this.panel2.Location = new System.Drawing.Point(302, 159);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(842, 545);
             this.panel2.TabIndex = 23;
@@ -298,29 +300,77 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.txtPublicaciones);
             this.panel3.Controls.Add(this.txtComentario);
             this.panel3.Controls.Add(this.btnSubir);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(375, 114);
+            this.panel3.Location = new System.Drawing.Point(302, 159);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(441, 351);
+            this.panel3.Size = new System.Drawing.Size(842, 346);
             this.panel3.TabIndex = 24;
             // 
-            // pictureBox3
+            // label9
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(11, 29);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(208, 189);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Location = new System.Drawing.Point(407, 155);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(133, 24);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Comentario";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label8.Location = new System.Drawing.Point(437, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 24);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Ruta Img";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // txtPublicaciones
+            // 
+            this.txtPublicaciones.Enabled = false;
+            this.txtPublicaciones.Location = new System.Drawing.Point(577, 57);
+            this.txtPublicaciones.Name = "txtPublicaciones";
+            this.txtPublicaciones.Size = new System.Drawing.Size(210, 23);
+            this.txtPublicaciones.TabIndex = 24;
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.Location = new System.Drawing.Point(577, 122);
+            this.txtComentario.Multiline = true;
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(210, 104);
+            this.txtComentario.TabIndex = 23;
+            // 
+            // btnSubir
+            // 
+            this.btnSubir.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSubir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubir.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSubir.ForeColor = System.Drawing.Color.White;
+            this.btnSubir.Location = new System.Drawing.Point(332, 283);
+            this.btnSubir.Name = "btnSubir";
+            this.btnSubir.Size = new System.Drawing.Size(190, 44);
+            this.btnSubir.TabIndex = 22;
+            this.btnSubir.Text = "Subir publicación";
+            this.btnSubir.UseVisualStyleBackColor = false;
+            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
             // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(244, 57);
+            this.button1.Location = new System.Drawing.Point(84, 222);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 21;
@@ -328,64 +378,57 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(34, 27);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(208, 189);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(183, 369);
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(598, 94);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(92, 36);
             this.button2.TabIndex = 21;
             this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(273, 369);
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(705, 94);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(94, 36);
             this.button3.TabIndex = 22;
             this.button3.Text = "Publicar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // auxUsuario
             // 
-            this.auxUsuario.Location = new System.Drawing.Point(195, 324);
+            this.auxUsuario.Enabled = false;
+            this.auxUsuario.Location = new System.Drawing.Point(374, 130);
             this.auxUsuario.Name = "auxUsuario";
             this.auxUsuario.Size = new System.Drawing.Size(100, 23);
             this.auxUsuario.TabIndex = 25;
-            // 
-            // txtComentario
-            // 
-            this.txtComentario.Location = new System.Drawing.Point(259, 112);
-            this.txtComentario.Multiline = true;
-            this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(142, 104);
-            this.txtComentario.TabIndex = 23;
-            // 
-            // btnSubir
-            // 
-            this.btnSubir.Location = new System.Drawing.Point(259, 223);
-            this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(144, 44);
-            this.btnSubir.TabIndex = 22;
-            this.btnSubir.Text = "Subir publicacion";
-            this.btnSubir.UseVisualStyleBackColor = true;
-            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
-            // 
-            // txtPublicaciones
-            // 
-            this.txtPublicaciones.Location = new System.Drawing.Point(48, 235);
-            this.txtPublicaciones.Name = "txtPublicaciones";
-            this.txtPublicaciones.Size = new System.Drawing.Size(100, 23);
-            this.txtPublicaciones.TabIndex = 24;
             // 
             // EditarPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(935, 449);
+            this.ClientSize = new System.Drawing.Size(1003, 517);
             this.Controls.Add(this.auxUsuario);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -443,5 +486,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private System.Windows.Forms.TextBox txtComentario;
         private System.Windows.Forms.Button btnSubir;
         private System.Windows.Forms.TextBox txtPublicaciones;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

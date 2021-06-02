@@ -241,6 +241,82 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             }
         }
 
+        public void leerXmlCompleto(string nombreXml)
+        {
+            //ClaseUsuario miUsuario = new ClaseUsuario();
+            //Program.objUsuarioXml2 = new ClaseUsuario();
+            auxDoc = new XmlDocument();
+            rutaXml = @"" + nombreXml + ".xml";
+            auxDoc.Load(rutaXml);
+
+            XmlNodeList listaUsuarios = auxDoc.SelectNodes("Usuarios/usuario");
+            XmlNode unUsuario;
+
+            //USUARIO
+            for (int a = 0; a < listaUsuarios.Count; a++)
+            {
+                unUsuario = listaUsuarios.Item(a);
+                string usuario = unUsuario.SelectSingleNode("Usuario").InnerText;
+                string nombre = unUsuario.SelectSingleNode("Nombre").InnerText;
+                string biografia = unUsuario.SelectSingleNode("Biografia").InnerText;
+                string correo = unUsuario.SelectSingleNode("Correo").InnerText;
+                string contraseña = unUsuario.SelectSingleNode("Contraseña").InnerText;
+                string img = unUsuario.SelectSingleNode("Img").InnerText;
+
+                Program.objUsuarioXml2 = new Usuario.ClaseUsuario();
+                Program.objUsuarioXml2.usuario = usuario;
+                Program.objUsuarioXml2.nombre = nombre;
+                Program.objUsuarioXml2.correo = correo;
+                Program.objUsuarioXml2.contraseña = contraseña;
+                Program.objUsuarioXml2.imagenProfile = img;
+                //Program.objUsuarioXml2 = new Usuario.ClaseUsuario(correo, nombre, usuario, contraseña, img);
+
+
+                //PUBLICACION
+                XmlNodeList listaPublicaciones = unUsuario.SelectNodes("Publicacion/publicacion");
+                XmlNode unaPublicacion;
+                for (int b = 0; b < listaPublicaciones.Count; b++)
+                {
+                    unaPublicacion = listaPublicaciones.Item(b);
+                    string miPublicacion = unaPublicacion.InnerText;
+                    Program.objUsuarioXml2.insertarPublicaciones(miPublicacion);
+                }
+
+                //SIGUIENDO
+                XmlNodeList listaSiguiendo = unUsuario.SelectNodes("Siguiendo/siguiendo");
+                XmlNode unSeguiendo;
+                for (int c = 0; c < listaSiguiendo.Count; c++)
+                {
+                    unSeguiendo = listaSiguiendo.Item(c);
+                    string siguiendo = unSeguiendo.InnerText;
+                    byte[] asscInt = Encoding.ASCII.GetBytes(siguiendo);
+                    string cadena = "";
+                    foreach (byte item in asscInt)
+                    {
+                        cadena = cadena + item;
+                    }
+                    Program.objUsuarioXml2.insertarSiguiendo(siguiendo, Convert.ToString(cadena));
+                }
+                //SEGUIDORES
+                XmlNodeList listaSeguidores = unUsuario.SelectNodes("Seguidores/seguidor");
+                XmlNode unSeguidor;
+                for (int d = 0; d < listaSeguidores.Count; d++)
+                {
+                    unSeguidor = listaSeguidores.Item(d);
+                    string seguidores = unSeguidor.InnerText;
+                    byte[] asscInt = Encoding.ASCII.GetBytes(seguidores);
+                    string cadena = "";
+                    foreach (byte item in asscInt)
+                    {
+                        cadena = cadena + item;
+                    }
+                    Program.objUsuarioXml2.insertarSeguidores(seguidores, Convert.ToString(cadena));
+                }
+
+
+                Program.objArbolAvl.insertar(Program.objUsuarioXml2);
+            }
+        }
 
         public void actualizarUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string nombreXml)
         {

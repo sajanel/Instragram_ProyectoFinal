@@ -95,8 +95,9 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             
             miXml = new AuxXml();
             miXml.crearXml("UsuariosInsta");
-            //miXml.añadirUsuario(txtUsuario.Text, txtNombre.Text, "", txtCorreo.Text, txtContraseña.Text, "");
-            miXml.leerXml("UsuariosInsta");
+
+            //miXml.leerXml("UsuariosInsta");
+            miXml.leerXmlCompleto("UsuariosInsta");
         }
     }
 }

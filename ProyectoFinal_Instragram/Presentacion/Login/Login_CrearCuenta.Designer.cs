@@ -234,7 +234,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.Contenidor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Contenidor1.Controls.Add(this.label1);
             this.Contenidor1.Controls.Add(this.txtCorreo);
-            this.Contenidor1.Location = new System.Drawing.Point(85, 190);
+            this.Contenidor1.Location = new System.Drawing.Point(86, 136);
             this.Contenidor1.Name = "Contenidor1";
             this.Contenidor1.Size = new System.Drawing.Size(256, 51);
             this.Contenidor1.TabIndex = 6;
@@ -297,7 +297,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel1.Controls.Add(this.btnExaminar);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtFoto);
-            this.panel1.Location = new System.Drawing.Point(85, 133);
+            this.panel1.Location = new System.Drawing.Point(85, 192);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(256, 51);
             this.panel1.TabIndex = 7;

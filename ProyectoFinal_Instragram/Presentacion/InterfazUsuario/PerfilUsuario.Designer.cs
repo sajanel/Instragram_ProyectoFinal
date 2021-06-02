@@ -206,11 +206,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // 
             // btnEditarPerfil
             // 
-            this.btnEditarPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(174)))), ((int)(((byte)(182)))));
+            this.btnEditarPerfil.BackColor = System.Drawing.Color.White;
             this.btnEditarPerfil.FlatAppearance.BorderSize = 0;
-            this.btnEditarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarPerfil.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditarPerfil.ForeColor = System.Drawing.Color.White;
+            this.btnEditarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditarPerfil.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditarPerfil.ForeColor = System.Drawing.Color.Black;
             this.btnEditarPerfil.Location = new System.Drawing.Point(678, 123);
             this.btnEditarPerfil.Name = "btnEditarPerfil";
             this.btnEditarPerfil.Size = new System.Drawing.Size(88, 29);
@@ -224,6 +224,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox3.Location = new System.Drawing.Point(243, 362);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(294, 294);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 13;
             this.pictureBox3.TabStop = false;
             // 
@@ -232,6 +233,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox4.Location = new System.Drawing.Point(591, 362);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(294, 294);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 14;
             this.pictureBox4.TabStop = false;
             // 
@@ -240,6 +242,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox5.Location = new System.Drawing.Point(946, 362);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(294, 294);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 15;
             this.pictureBox5.TabStop = false;
             // 
@@ -248,6 +251,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox6.Location = new System.Drawing.Point(243, 702);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(294, 294);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 16;
             this.pictureBox6.TabStop = false;
             // 
@@ -256,6 +260,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox7.Location = new System.Drawing.Point(591, 702);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(294, 294);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 17;
             this.pictureBox7.TabStop = false;
             // 
@@ -264,6 +269,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox8.Location = new System.Drawing.Point(946, 702);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(294, 294);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 18;
             this.pictureBox8.TabStop = false;
             // 
@@ -273,7 +279,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(995, 553);
+            this.ClientSize = new System.Drawing.Size(1029, 587);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);

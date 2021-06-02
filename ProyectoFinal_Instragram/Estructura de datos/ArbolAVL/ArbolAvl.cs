@@ -210,6 +210,34 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
                 return buscar(raizSub.subarbolDch(), buscado);
             return null;
         }
+        public Nodo buscarUsuario(Object buscado)
+        {
+            Comparador dato;
+            dato = (Comparador)buscado;
+
+
+            if (arbolRaiz == null)
+                return null;
+            else
+                return buscarUsuario(raizArbol(), dato);
+        }
+
+        protected Nodo buscarUsuario(Nodo raizSub, Comparador buscado)
+        {
+
+            if (raizSub == null)
+                return null;
+            else if (buscado.UsuarioIgual(raizSub.valorNodo()))
+                return raizSub;
+            else if (buscado.UsuarioMenor(raizSub.valorNodo()))
+                return buscarUsuario(raizSub.subarbolIzq(), buscado);
+            else
+                return buscarUsuario(raizSub.subarbolDch(), buscado);
+            return null;
+        }
+
+
+
 
         //Este es el metodo implementado para buscar en todo el arbol el dato
         //Este retorna un tostring idfirstIdAlumno+"-"+secondIdAlumno+" " + nombreAlumno + ",";
