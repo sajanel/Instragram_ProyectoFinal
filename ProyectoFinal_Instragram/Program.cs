@@ -26,7 +26,7 @@ namespace ProyectoFinal_Instragram
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login_Inicio());
-          //  Application.Run(new Grafica());
+          //Application.Run(new Grafica());
             //Application.Run(new Navegation());
             //Application.Run(new Login_CrearCuenta());
             //Application.Run(new PerfilUsuario());
