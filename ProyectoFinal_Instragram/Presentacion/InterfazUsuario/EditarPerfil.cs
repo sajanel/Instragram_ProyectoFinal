@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
 using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
 using System.Xml;
 
@@ -240,6 +241,26 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             ClaseUsuario objUsuario = new ClaseUsuario(auxUsuario.Text);
             ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
             encontradoUsuario.insertarPublicaciones(urlImg + "," + txtComentario.Text);
+            SalirFomulario();
+        }
+
+        public void SalirFomulario()
+        {
+            MessageBox.Show("Se ha generado su publicacion correctamente", "informacion de la publiacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Hide();
+            PerfilUsuario Formulario = new PerfilUsuario();
+            Formulario.Show();
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

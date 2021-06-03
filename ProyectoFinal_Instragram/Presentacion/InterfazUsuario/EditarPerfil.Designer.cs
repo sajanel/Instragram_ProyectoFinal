@@ -207,6 +207,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(210, 23);
             this.textBox2.TabIndex = 18;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label6
             // 
@@ -312,6 +313,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(842, 346);
             this.panel3.TabIndex = 24;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label9
             // 
@@ -428,7 +430,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1003, 517);
+            this.ClientSize = new System.Drawing.Size(1020, 534);
             this.Controls.Add(this.auxUsuario);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

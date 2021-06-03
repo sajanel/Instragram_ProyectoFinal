@@ -237,7 +237,16 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
         }
 
 
+        public string Preorden(Nodo r)
+        {
+            if (r != null)
+            {
+                return r.visitarNodo() + rcPreorden(r.subarbolIzq()) + rcPreorden(r.subarbolDch());
 
+
+            }
+            return "";
+        }
 
         //Este es el metodo implementado para buscar en todo el arbol el dato
         //Este retorna un tostring idfirstIdAlumno+"-"+secondIdAlumno+" " + nombreAlumno + ",";

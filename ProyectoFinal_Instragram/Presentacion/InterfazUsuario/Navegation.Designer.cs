@@ -310,10 +310,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.lblGuardado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblGuardado.Location = new System.Drawing.Point(18, 54);
             this.lblGuardado.Name = "lblGuardado";
-            this.lblGuardado.Size = new System.Drawing.Size(95, 17);
+            this.lblGuardado.Size = new System.Drawing.Size(115, 17);
             this.lblGuardado.TabIndex = 1;
-            this.lblGuardado.Text = "       Guardado";
+            this.lblGuardado.Text = "       MostrarArbol";
             this.lblGuardado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblGuardado.Click += new System.EventHandler(this.lblGuardado_Click);
             // 
             // lblPerfil
             // 
@@ -492,7 +493,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1370, 655);
+            this.ClientSize = new System.Drawing.Size(1370, 672);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.label1);

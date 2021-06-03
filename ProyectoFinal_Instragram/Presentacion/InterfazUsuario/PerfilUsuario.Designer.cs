@@ -279,7 +279,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1029, 587);
+            this.ClientSize = new System.Drawing.Size(1046, 604);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);

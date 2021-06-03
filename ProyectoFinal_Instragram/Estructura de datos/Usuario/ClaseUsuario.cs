@@ -120,5 +120,10 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
         {
             return correo + ", " + nombre + ", " + usuario + ", " + imagenProfile + ", " + contraseña;
         }
+
+        public override string ToString()
+        {
+            return usuario + ",";
+        }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoFinal_Instragram.Presentacion.Login;
+using ProyectoFinal_Instragram.Presentacion.Grafico_Arbol;
 using System.Xml;
 using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 
@@ -104,7 +105,14 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+          
+        }
 
+        private void lblGuardado_Click(object sender, EventArgs e)
+        {
+            Grafica Formulario = new Grafica();
+            Formulario.Show();
+            this.Hide();
         }
     }
 }
