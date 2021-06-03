@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoFinal_Instragram.Presentacion.Login;
-using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
+using ProyectoFinal_Instragram.Presentacion.Grafico_Arbol;
 using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 
@@ -26,11 +26,12 @@ namespace ProyectoFinal_Instragram
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login_Inicio());
+          //  Application.Run(new Grafica());
             //Application.Run(new Navegation());
             //Application.Run(new Login_CrearCuenta());
             //Application.Run(new PerfilUsuario());
             //static ArbolAvl arbol2;
-            
+
         }
     }
 }

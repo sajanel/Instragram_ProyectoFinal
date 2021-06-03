@@ -236,14 +236,13 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
             return null;
         }
 
+      
 
         public string Preorden(Nodo r)
         {
             if (r != null)
             {
                 return r.visitarNodo() + rcPreorden(r.subarbolIzq()) + rcPreorden(r.subarbolDch());
-
-
             }
             return "";
         }

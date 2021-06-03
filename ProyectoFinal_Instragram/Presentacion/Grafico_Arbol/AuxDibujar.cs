@@ -11,21 +11,21 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
     class AuxDibujar
     {
         private AxArbol raiz = null;  ///Raiz del arbol
-
+        public int contador { get; set; }
         PictureBox ptb;  ///Mostrar el arbol
         Bitmap b;
         Graphics g;
         Pen lapiz;
 
-        Pen borde = new Pen(Color.FromArgb(255, 153, 51), 3);
+        Pen borde = new Pen(Color.FromArgb(89, 132, 174), 3);
         //Pen linea1 = new Pen(Color.FromArgb(61, 33, 163), 3);
 
         // int despX1=150;
-        int despX2 = 150;
+       // int despX2 = 150;
         int despY = 40;
         int raizX;
         int raizY;
-        int contador = 0;
+       // int contador = 0;
 
 
         public AxArbol Raiz
@@ -74,8 +74,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
                     g.DrawString(A.dato.ToString(), new Font("Cambria", 10, FontStyle.Regular), Brushes.Black, A.posx, A.posy);
 
                     g.DrawEllipse(borde, raizX, raizY - 15, 50, 50);
-
-
+                  
                 }
                 else
                 {
@@ -93,25 +92,31 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
 
                         //Nivel del arbol
                         contador++;
-
+                       
                         //Coloca la linea segun sea su nivel
                         if (contador == 2)
                         {
+                            A.nivel = contador;
                             A.posx = padre.posx - 180;
                             g.DrawLine(borde, padre.posx + 2, padre.posy, A.posx + 30, A.posy + 30);
+
+
                         }
                         else if (contador == 3)
                         {
+                          
                             A.posx = padre.posx - 80;
                             g.DrawLine(borde, padre.posx + 5, padre.posy + 50, A.posx + 30, A.posy + 30);
                         }
                         else if (contador == 4)
                         {
+                         
                             A.posx = padre.posx - 50;
                             g.DrawLine(borde, padre.posx + 5, padre.posy + 50, A.posx + 30, A.posy + 30);
                         }
                         else if (contador > 4)
                         {
+                         
                             A.posx = padre.posx - 40;
                             g.DrawLine(borde, padre.posx + 5, padre.posy + 50, A.posx + 30, A.posy + 30);
                         }
@@ -213,6 +218,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
         public AxArbol der;
         public int posx;
         public int posy;
+        public int nivel;
         //public int nivelArbol;
     }
 }
