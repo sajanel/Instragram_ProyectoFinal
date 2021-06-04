@@ -8,7 +8,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash
 {
     public class TablaDispercionColision
     {
-        public static readonly int M = 1024;
+        public static readonly int M = 124;
         public static readonly double R = 0.618034;
         int Posicion;
         Lista[] tabla = new Lista[M];
@@ -39,9 +39,14 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash
 
         public object Buscar(String Clave)
         {
+            //49
             Posicion = DispersionMod(Clave);
-            return tabla[Posicion].BuscarNodo(Clave);
-            
+
+            //89
+            if (tabla[Posicion]==null)
+                return null;
+            else
+                return tabla[Posicion].BuscarNodo(Clave);
         }
 
     }

@@ -29,12 +29,25 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash.ListaSimple
             Nodo temp = primero;
             int posicion = 1;
 
-            while (temp != null && !temp.Dato.Equals(pValor))
+            //converId(temp.Dato.ToString());
+            while (temp != null && !converId(temp.Dato.ToString()).Equals(pValor))
             {
                 temp = temp.Enlace;
                 posicion++;
             }
+            //return (temp == null) ? null : converId(temp.Dato.ToString());
             return (temp == null) ? null : temp.Dato;
+        }
+
+        public string converId(string user)
+        {
+            byte[] asscInt = Encoding.ASCII.GetBytes(user);
+            string cadena = "";
+            foreach (byte item in asscInt)
+            {
+                cadena = cadena + item;
+            }
+            return cadena;
         }
 
         public String MuestraLista()

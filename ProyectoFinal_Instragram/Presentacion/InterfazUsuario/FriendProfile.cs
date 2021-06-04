@@ -74,27 +74,42 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void btnSeguir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Usted a seguido a "+lbUsuario.Text);
-
-            miXml.añadirInfoAmigo(lbUsuario.Text, "Siguiendo", "siguiendo", "UsuariosInsta", Program.miUsuario);
-
-            miXml.añadirInfoAmigo(Program.miUsuario, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
-
-            //converId(lbUsuario.Text);
-
-            //Program.objUsuarioXml2.insertarSiguiendo(lbUsuario.Text, Convert.ToString(converId(lbUsuario.Text)));
-
-            //INSERTAR EL USUARIO QUE SEGUI YO
-            ClaseUsuario objMiUsuario = new ClaseUsuario(Program.miUsuario);
-            ClaseUsuario encontradoMiUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objMiUsuario).valorNodo();
-            encontradoMiUsuario.insertarSiguiendo(lbUsuario.Text, Convert.ToString(converId(lbUsuario.Text)));
-
-            //converId(Program.miUsuario);
-            //INSERTAR MI NOMBRE EN LOS SEGUIDORES DEL QUE SIGO
-            ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
-            ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
-            encontradoUsuario.insertarSeguidores(Program.miUsuario, Convert.ToString(converId(Program.miUsuario)));
             
+            ClaseUsuario objMiUsuario2 = new ClaseUsuario(Program.miUsuario);
+            ClaseUsuario encontradoMiUsuario2 = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objMiUsuario2).valorNodo();
+            
+            if(encontradoMiUsuario2.tablaHashSeguidos.Buscar(converId(lbUsuario.Text)) != null)
+            {
+                MessageBox.Show("Usted esta siguiendo a " + lbUsuario.Text);
+                btnSeguir.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Usted a seguido a " + lbUsuario.Text);
+
+                miXml.añadirInfoAmigo(lbUsuario.Text, "Siguiendo", "siguiendo", "UsuariosInsta", Program.miUsuario);
+
+                miXml.añadirInfoAmigo(Program.miUsuario, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
+
+                //converId(lbUsuario.Text);
+
+                //Program.objUsuarioXml2.insertarSiguiendo(lbUsuario.Text, Convert.ToString(converId(lbUsuario.Text)));
+
+                //INSERTAR EL USUARIO QUE SEGUI YO
+                ClaseUsuario objMiUsuario = new ClaseUsuario(Program.miUsuario);
+                ClaseUsuario encontradoMiUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objMiUsuario).valorNodo();
+                encontradoMiUsuario.insertarSiguiendo(lbUsuario.Text, Convert.ToString(converId(lbUsuario.Text)));
+
+                //converId(Program.miUsuario);
+                //INSERTAR MI NOMBRE EN LOS SEGUIDORES DEL QUE SIGO
+                ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
+                ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+                encontradoUsuario.insertarSeguidores(Program.miUsuario, Convert.ToString(converId(Program.miUsuario)));
+            }
+
+
+
+
         }
 
         public string converId(string user)
