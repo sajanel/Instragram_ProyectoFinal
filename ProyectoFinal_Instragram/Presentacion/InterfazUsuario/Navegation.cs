@@ -11,12 +11,15 @@ using ProyectoFinal_Instragram.Presentacion.Login;
 using ProyectoFinal_Instragram.Presentacion.Grafico_Arbol;
 using System.Xml;
 using ProyectoFinal_Instragram.Estructura_de_datos.XML;
+using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
+using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 
 namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 {
     public partial class Navegation : Form
     {
         AuxXml miXmlTemp;
+        AuxXml miXml;
         public Navegation()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void PerfilUsuario_Load(object sender, EventArgs e)
         {
+            miXml = new AuxXml();
             miXmlTemp = new AuxXml();
             PanelOpciones.Visible = false;
             //miXmlTemp.leerXml("UsuarioTemp");
@@ -57,6 +61,63 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                     }
                 }
             }
+
+            
+            //string phrase = ArbolAvl.rcInorden(Program.objArbolAvl.raizArbol());
+            //string[] arrayUsuarios = phrase.Split(';');
+
+            string[] arrayUsuarios = ArbolAvl.rcInorden(Program.objArbolAvl.raizArbol()).Split(';');
+
+            Random r = new Random();
+            int cont = 1;
+            for (int i = 0; i < 4; i++)
+            {
+                //Genera un numero entre 10 y 100 (101 no se incluye)
+                Console.WriteLine(r.Next(0, 3));
+                if (cont == 1)
+                {
+                    string[] arrUsuario = arrayUsuarios[r.Next(0, 3)].Split(',');
+                    pictureBox4.WaitOnLoad = false;
+                    pictureBox4.LoadAsync(@"" + arrUsuario[0]);
+                    label2.Text = arrUsuario[1];
+
+                    //ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
+                    //ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+                    //MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
+
+                    //miXml.eliminarXml("UsuarioAmigo");
+                    //miXml.crearXml("UsuarioAmigo");
+                    //miXml.añadirUsuario(encontradoUsuario.usuario, encontradoUsuario.nombre, "", encontradoUsuario.correo,
+                    //    encontradoUsuario.contraseña, encontradoUsuario.imagenProfile, "UsuarioAmigo");
+
+                    cont++;
+                }
+                if (cont == 2)
+                {
+                    string[] arrUsuario = arrayUsuarios[r.Next(0, 3)].Split(',');
+                    pictureBox5.WaitOnLoad = false;
+                    pictureBox5.LoadAsync(@"" + arrUsuario[0]);
+                    label3.Text = arrUsuario[1];
+                    cont++;
+                }
+                if (cont == 3)
+                {
+                    string[] arrUsuario = arrayUsuarios[r.Next(0, 3)].Split(',');
+                    pictureBox6.WaitOnLoad = false;
+                    pictureBox6.LoadAsync(@"" + arrUsuario[0]);
+                    label4.Text = arrUsuario[1];
+                    cont++;
+                }
+                if (cont == 4)
+                {
+                    string[] arrUsuario = arrayUsuarios[r.Next(0, 3)].Split(',');
+                    pictureBox7.WaitOnLoad = false;
+                    pictureBox7.LoadAsync(@"" + arrUsuario[0]);
+                    label5.Text = arrUsuario[1];
+                    cont++;
+                }
+            }
+
         }
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
@@ -111,6 +172,32 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private void lblGuardado_Click(object sender, EventArgs e)
         {
             Grafica Formulario = new Grafica();
+            Formulario.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ClaseUsuario objUsuario = new ClaseUsuario(label2.Text);
+            ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+            MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
+            Program.usuario = encontradoUsuario.usuario;
+            Program.contraseña = encontradoUsuario.contraseña;
+
+            FriendProfile Formulario = new FriendProfile();
+            Formulario.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            ClaseUsuario objUsuario = new ClaseUsuario(label3.Text);
+            ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+            MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
+            Program.usuario = encontradoUsuario.usuario;
+            Program.contraseña = encontradoUsuario.contraseña;
+
+            FriendProfile Formulario = new FriendProfile();
             Formulario.Show();
             this.Hide();
         }

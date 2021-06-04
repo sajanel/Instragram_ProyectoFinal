@@ -18,7 +18,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
     public partial class Login_Inicio : Form
     {
         AuxXml miXml;
-        AuxXml miXmlTemp;
+        //AuxXml miXmlTemp;
 
         public Login_Inicio()
         {

@@ -123,7 +123,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
 
         public override string ToString()
         {
-            return usuario + ",";
+            return imagenProfile + "," + usuario + ";";
         }
     }
 }
