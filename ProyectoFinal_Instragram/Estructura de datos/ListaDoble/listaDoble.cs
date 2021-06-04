@@ -10,7 +10,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble
     {
 
         public NodoDoble inicio, fin;
-
+        public int cont { get; set; }
         public listaDoble()
         {
             inicio = fin = null;
@@ -31,14 +31,16 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble
             {
                 fin = new NodoDoble(n, null, fin);
                 fin.anterior.siguiente = fin;
+                cont++;
             }
             /*Esta vacia*/
 
             else
             {
                 inicio = fin = new NodoDoble(n);
+                cont++;
             }
-
+            
         }
 
         /*Insertar al inicio de la lista*/
@@ -48,12 +50,14 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble
             {
                 inicio = new NodoDoble(n, inicio, null);
                 inicio.siguiente.anterior = inicio;
+                cont++;
             }
             /*Esta vacia*/
 
             else
             {
                 inicio = fin = new NodoDoble(n);
+                cont++;
             }
 
         }

@@ -64,6 +64,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         {
             ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
             ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+
+            lbSeguidos.Text = encontradoUsuario.tablaHashSeguidos.cont.ToString();
+            lbSeguidores.Text = encontradoUsuario.tablaHashSeguidores.cont.ToString();
+            lbPosts.Text = encontradoUsuario.miLista.cont.ToString();
+
             //MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
 
             int i = 0;

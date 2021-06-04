@@ -29,7 +29,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash.ListaSimple
             Nodo temp = primero;
             int posicion = 1;
 
-            //converId(temp.Dato.ToString());
+            //converId = temp.Dato = Juan = 108104;
             while (temp != null && !converId(temp.Dato.ToString()).Equals(pValor))
             {
                 temp = temp.Enlace;

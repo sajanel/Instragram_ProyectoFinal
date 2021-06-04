@@ -11,6 +11,8 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash
         public static readonly int M = 124;
         public static readonly double R = 0.618034;
         int Posicion;
+        public int cont { get; set; }
+
         Lista[] tabla = new Lista[M];
 
 
@@ -29,6 +31,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash
                 tabla[Posicion] = new Lista();
             }
             tabla[Posicion].insertarCabezaLista(Dato);
+            cont++;
         }
 
         public void Eliminar(String Clave)
@@ -39,10 +42,10 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash
 
         public object Buscar(String Clave)
         {
-            //49
+            //lh = 89
             Posicion = DispersionMod(Clave);
 
-            //89
+            //49,89,100
             if (tabla[Posicion]==null)
                 return null;
             else

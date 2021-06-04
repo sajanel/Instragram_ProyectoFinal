@@ -27,6 +27,10 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscar(objUsuario).valorNodo();
             //MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
 
+            lbSeguidos.Text = encontradoUsuario.tablaHashSeguidos.cont.ToString();
+            lbSeguidores.Text = encontradoUsuario.tablaHashSeguidores.cont.ToString();
+            lbPosts.Text = encontradoUsuario.miLista.cont.ToString();
+
             fotoPerfil.WaitOnLoad = false;
             fotoPerfil.LoadAsync(@"" + encontradoUsuario.imagenProfile);
 
@@ -80,12 +84,12 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             
             if(encontradoMiUsuario2.tablaHashSeguidos.Buscar(converId(lbUsuario.Text)) != null)
             {
-                MessageBox.Show("Usted esta siguiendo a " + lbUsuario.Text);
+                MessageBox.Show("Usted esta siguiendo a " + lbUsuario.Text, "Información Usuario",MessageBoxButtons.OK, MessageBoxIcon.Information );
                 btnSeguir.Enabled = false;
             }
             else
             {
-                MessageBox.Show("Usted a seguido a " + lbUsuario.Text);
+                
 
                 miXml.añadirInfoAmigo(lbUsuario.Text, "Siguiendo", "siguiendo", "UsuariosInsta", Program.miUsuario);
 
@@ -105,6 +109,8 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
                 ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
                 encontradoUsuario.insertarSeguidores(Program.miUsuario, Convert.ToString(converId(Program.miUsuario)));
+
+                MessageBox.Show("Usted a seguido a " + lbUsuario.Text, "Información Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
