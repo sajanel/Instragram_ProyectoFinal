@@ -49,6 +49,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btnSeguir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPerfil)).BeginInit();
@@ -91,6 +92,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lbDescripcion
             // 
@@ -256,12 +258,28 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox6.TabIndex = 26;
             this.pictureBox6.TabStop = false;
             // 
+            // btnSeguir
+            // 
+            this.btnSeguir.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSeguir.FlatAppearance.BorderSize = 0;
+            this.btnSeguir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeguir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSeguir.ForeColor = System.Drawing.Color.White;
+            this.btnSeguir.Location = new System.Drawing.Point(712, 117);
+            this.btnSeguir.Name = "btnSeguir";
+            this.btnSeguir.Size = new System.Drawing.Size(88, 29);
+            this.btnSeguir.TabIndex = 29;
+            this.btnSeguir.Text = "Seguir";
+            this.btnSeguir.UseVisualStyleBackColor = false;
+            this.btnSeguir.Click += new System.EventHandler(this.btnSeguir_Click);
+            // 
             // FriendProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(922, 454);
+            this.ClientSize = new System.Drawing.Size(1001, 494);
+            this.Controls.Add(this.btnSeguir);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
@@ -319,5 +337,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button btnSeguir;
     }
 }

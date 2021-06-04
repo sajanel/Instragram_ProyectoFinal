@@ -1,5 +1,6 @@
 ﻿using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 {
     public partial class FriendProfile : Form
     {
+        AuxXml miXml = new AuxXml();
         public FriendProfile()
         {
             InitializeComponent();
@@ -68,6 +70,49 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private void pictureBox5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSeguir_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Usted a seguido a "+lbUsuario.Text);
+
+            miXml.añadirInfoAmigo(lbUsuario.Text, "Siguiendo", "siguiendo", "UsuariosInsta", Program.miUsuario);
+
+            miXml.añadirInfoAmigo(Program.miUsuario, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
+
+            //converId(lbUsuario.Text);
+
+            //Program.objUsuarioXml2.insertarSiguiendo(lbUsuario.Text, Convert.ToString(converId(lbUsuario.Text)));
+
+            //INSERTAR EL USUARIO QUE SEGUI YO
+            ClaseUsuario objMiUsuario = new ClaseUsuario(Program.miUsuario);
+            ClaseUsuario encontradoMiUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objMiUsuario).valorNodo();
+            encontradoMiUsuario.insertarSiguiendo(lbUsuario.Text, Convert.ToString(converId(lbUsuario.Text)));
+
+            //converId(Program.miUsuario);
+            //INSERTAR MI NOMBRE EN LOS SEGUIDORES DEL QUE SIGO
+            ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
+            ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+            encontradoUsuario.insertarSeguidores(Program.miUsuario, Convert.ToString(converId(Program.miUsuario)));
+            
+        }
+
+        public string converId(string user)
+        {
+            byte[] asscInt = Encoding.ASCII.GetBytes(user);
+            string cadena = "";
+            foreach (byte item in asscInt)
+            {
+                cadena = cadena + item;
+            }
+            return cadena;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Navegation Formulario = new Navegation();
+            Formulario.Show();
+            this.Hide();
         }
     }
 }

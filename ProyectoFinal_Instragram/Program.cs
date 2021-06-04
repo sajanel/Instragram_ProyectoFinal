@@ -13,6 +13,7 @@ namespace ProyectoFinal_Instragram
     static class Program
     {
         static public string usuario, contraseña;
+        static public string miUsuario;
         static public ArbolAvl objArbolAvl;
         static public ClaseUsuario objUsuarioXml2;
         /// <summary>

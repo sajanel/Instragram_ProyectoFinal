@@ -211,7 +211,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.btnEditarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditarPerfil.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEditarPerfil.ForeColor = System.Drawing.Color.Black;
-            this.btnEditarPerfil.Location = new System.Drawing.Point(678, 123);
+            this.btnEditarPerfil.Location = new System.Drawing.Point(710, 118);
             this.btnEditarPerfil.Name = "btnEditarPerfil";
             this.btnEditarPerfil.Size = new System.Drawing.Size(88, 29);
             this.btnEditarPerfil.TabIndex = 12;

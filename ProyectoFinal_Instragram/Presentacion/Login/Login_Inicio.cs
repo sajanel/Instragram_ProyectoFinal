@@ -73,6 +73,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
                     ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscar(objUsuario).valorNodo();
                     MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
 
+                    Program.miUsuario = encontradoUsuario.usuario;
+
                     miXml.eliminarXml("UsuarioTemp");
                     miXml.crearXml("UsuarioTemp");
                     miXml.añadirUsuario(encontradoUsuario.usuario, encontradoUsuario.nombre, "", encontradoUsuario.correo,
