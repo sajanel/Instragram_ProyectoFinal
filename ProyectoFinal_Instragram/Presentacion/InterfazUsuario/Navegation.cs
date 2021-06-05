@@ -20,9 +20,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
     {
         AuxXml miXmlTemp;
         AuxXml miXml;
+        ArbolAvl miArbol = Program.objArbolAvl;
         public Navegation()
         {
             InitializeComponent();
+            panel8.Visible = false;
         }
 
         private void PerfilUsuario_Load(object sender, EventArgs e)
@@ -200,6 +202,42 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             FriendProfile Formulario = new FriendProfile();
             Formulario.Show();
             this.Hide();
+        }
+
+        private void txtBuscarUsuario_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarUsuario.Text == " " || txtBuscarUsuario.Text == "")
+            {
+                panel8.Visible = false;
+                label6.Text = "";
+                label7.Text = "";
+                label8.Text = "";
+            }
+            else
+            {
+                panel8.Visible = true;
+                int contador = 0;
+                int aux=0;
+                
+                string nuevo = ArbolAvl.rcPreorden(miArbol.raizArbol());
+                string[] palabras = nuevo.Split(',', ';');
+
+                foreach (string palabra in palabras)
+                {
+                    contador++;
+                    if (palabra != "" && contador % 2 == 0)
+                    {
+                        if (palabra.StartsWith(txtBuscarUsuario.Text))
+                        {
+                            aux++;
+                            if (aux ==1) { label6.Text = palabra; panel8.Visible = true; }
+                            else if (aux == 2) { label7.Text = palabra; }
+                            else if (aux == 3) { label8.Text = palabra; }
+
+                        }
+                    }
+                }
+            }
         }
     }
 }

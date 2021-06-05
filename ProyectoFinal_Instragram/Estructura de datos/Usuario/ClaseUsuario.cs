@@ -115,6 +115,12 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
             ClaseUsuario info_Usuario = (ClaseUsuario)q;
             return (info_Usuario.usuario.CompareTo(usuario) == -1);
         }
+        public bool BusquedaAvanzada(object q)
+        {
+            ClaseUsuario info_Usuario = (ClaseUsuario)q;
+            return (info_Usuario.usuario.StartsWith(usuario) == true);
+        }
+
 
         public string busquedaInfo()
         {

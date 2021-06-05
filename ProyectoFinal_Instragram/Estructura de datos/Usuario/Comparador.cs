@@ -14,6 +14,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
         public bool ContraseñaDiferente(object q);
         public bool UsuarioMayor(object q);
         public bool UsuarioMenor(object q);
+        public bool BusquedaAvanzada(object q);
 
     }
 }
