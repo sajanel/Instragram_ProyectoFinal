@@ -111,6 +111,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 encontradoUsuario.insertarSeguidores(Program.miUsuario, Convert.ToString(converId(Program.miUsuario)));
 
                 MessageBox.Show("Usted a seguido a " + lbUsuario.Text, "Información Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnSeguir.Enabled = false;
             }
 
 

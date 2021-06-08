@@ -49,6 +49,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExaminar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,7 +69,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.textBox1.Location = new System.Drawing.Point(86, 481);
+            this.textBox1.Location = new System.Drawing.Point(86, 514);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(253, 41);
@@ -80,7 +82,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(110, 536);
+            this.label7.Location = new System.Drawing.Point(110, 558);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(124, 17);
             this.label7.TabIndex = 13;
@@ -96,7 +98,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.btnPaginaInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPaginaInicio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPaginaInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(149)))), ((int)(((byte)(246)))));
-            this.btnPaginaInicio.Location = new System.Drawing.Point(242, 525);
+            this.btnPaginaInicio.Location = new System.Drawing.Point(242, 547);
             this.btnPaginaInicio.Name = "btnPaginaInicio";
             this.btnPaginaInicio.Size = new System.Drawing.Size(99, 39);
             this.btnPaginaInicio.TabIndex = 12;
@@ -111,7 +113,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.bntRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bntRegistrarUsuario.Font = new System.Drawing.Font("Segoe UI Historic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.bntRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bntRegistrarUsuario.Location = new System.Drawing.Point(85, 425);
+            this.bntRegistrarUsuario.Location = new System.Drawing.Point(86, 458);
             this.bntRegistrarUsuario.Name = "bntRegistrarUsuario";
             this.bntRegistrarUsuario.Size = new System.Drawing.Size(256, 40);
             this.bntRegistrarUsuario.TabIndex = 10;
@@ -193,6 +195,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Location = new System.Drawing.Point(14, 26);
+            this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(230, 16);
             this.txtUsuario.TabIndex = 1;
@@ -275,6 +278,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.label9);
+            this.panel9.Controls.Add(this.dateTimePicker1);
             this.panel9.Controls.Add(this.panel1);
             this.panel9.Controls.Add(this.label6);
             this.panel9.Controls.Add(this.label7);
@@ -288,8 +293,29 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel9.Controls.Add(this.panel6);
             this.panel9.Location = new System.Drawing.Point(470, 60);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(422, 577);
+            this.panel9.Size = new System.Drawing.Size(422, 596);
             this.panel9.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Gadugi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.label9.Location = new System.Drawing.Point(86, 424);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(113, 14);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Fecha de nacimiento";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(216, 416);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(126, 25);
+            this.dateTimePicker1.TabIndex = 17;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 6, 8, 1, 24, 58, 0);
             // 
             // panel1
             // 
@@ -400,5 +426,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnExaminar;
         private System.Windows.Forms.TextBox txtFoto;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

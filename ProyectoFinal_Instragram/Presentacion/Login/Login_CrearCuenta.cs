@@ -21,9 +21,11 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
         ClaseUsuario objUsuario;
         OpenFileDialog buscarFoto;
         string urlFoto = "";
+         ArbolAvl miArbol = Program.objArbolAvl;
         public Login_CrearCuenta()
         {
             InitializeComponent();
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -39,7 +41,6 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             {
                 txtContraseña.PasswordChar = '*';
             }
-
         }
 
         private void btnPaginaInicio_Click(object sender, EventArgs e)
@@ -49,19 +50,18 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             login_Inicio.Show();
         }
 
-
         private void bntRegistrarUsuario_Click(object sender, EventArgs e)
         {
-            //CREAR XML
-            //miXml.crearXml("UsuariosInsta");
-            //miXml.leerXml("UsuariosInsta");
-
+          
             miXml.crearCarpeta(txtUsuario.Text, "UsuariosInsta");
 
             urlFoto = buscarFoto.FileName;
-            string nuevaRuta = Path.Combine(@"Perfiles/" + txtUsuario.Text, buscarFoto.SafeFileName);
 
-            string urlImg = "Perfiles/" + txtUsuario.Text + "/" + Path.GetFileName(urlFoto);
+            string nuevaRuta = Path.Combine(@"Perfiles/" + txtUsuario.Text, buscarFoto.SafeFileName);//Direccion imagen
+
+            string fechaNacimiento = dateTimePicker1.Value.ToString("dd/MM/yyyy"); //Fecha Usuario
+
+            string urlImg = "Perfiles/" + txtUsuario.Text + "/" + Path.GetFileName(urlFoto); //imagen del usuario
 
             if (!File.Exists(nuevaRuta))
             
@@ -73,13 +73,35 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
                 MessageBox.Show("La ruta de destino ya contiene un archivo con el mismo nombre.");
             }
 
-            miXml.añadirUsuario(txtUsuario.Text, txtNombre.Text, "", txtCorreo.Text, txtContraseña.Text, urlImg, "UsuariosInsta");
-            objUsuario = new ClaseUsuario(txtCorreo.Text, txtNombre.Text, txtUsuario.Text, txtContraseña.Text, "");
-            Program.objArbolAvl.insertar(objUsuario);
-           
-            SalirFomulario();
+            if (txtUsuario.TextLength < 4)
+            {
+                MessageBox.Show("El nombre de usuario es corto !!");
 
-            
+            }
+
+            else
+            {
+                string cadenaUsuario = txtUsuario.Text;
+
+                ClaseUsuario miUsuario = new ClaseUsuario(cadenaUsuario.ToLower());
+
+                //Program.objArbolAvl = new ArbolAvl();             
+                if (miArbol.buscarUsuario(miUsuario)== null)
+                {
+                    
+                    ///Datos del usuario se almacenan en un arbol AVL, y a un XML
+                    miXml.añadirUsuario(cadenaUsuario.ToLower(), txtNombre.Text, "", txtCorreo.Text, txtContraseña.Text, urlImg, fechaNacimiento, "UsuariosInsta");
+                    objUsuario = new ClaseUsuario(txtCorreo.Text, txtNombre.Text, cadenaUsuario.ToLower(), txtContraseña.Text, "", fechaNacimiento);
+                    Program.objArbolAvl.insertar(objUsuario);
+                    SalirFomulario();
+                }
+                else
+                {
+                    MessageBox.Show("Ya esta registrado el usuario");
+                }
+            }
+
+
         }
 
         private void Login_CrearCuenta_Load(object sender, EventArgs e)
@@ -88,6 +110,9 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             Program.objUsuarioXml2 = new ClaseUsuario();
             Program.objArbolAvl = new ArbolAvl();
             miXml = new AuxXml();
+
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+           // dateTimePicker1.Value = DateTime.Today;
         }
 
         public void SalirFomulario() 
@@ -96,7 +121,6 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.Hide();
             Login_Inicio Formulario = new Login_Inicio();
             Formulario.Show();
-            
         }
         
         private void btnExaminar_Click(object sender, EventArgs e)
@@ -112,9 +136,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
                 {
                     MessageBox.Show("Sólo se admiten archivos en formatos .png, .jpg, .jpeg");
                     return;
-                }
-                
-
+                }         
             }
         }
     }

@@ -45,14 +45,14 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             File.Delete(rutaXml);
         }
 
-        public void añadirUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string nombreXml)
+        public void añadirUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string fechaUser,string nombreXml)
         {
             auxDoc = new XmlDocument();
 
             rutaXml = @"" + nombreXml + ".xml";
             auxDoc.Load(rutaXml);
 
-            XmlNode empleado = nuevoUsuario(usuario,nombre,biografia,correo,contraseña,img);
+            XmlNode empleado = nuevoUsuario(usuario,nombre,biografia,correo,contraseña,img, fechaUser);
 
             XmlNode nodoRaiz = auxDoc.DocumentElement;
             nodoRaiz.InsertAfter(empleado, nodoRaiz.LastChild);
@@ -124,7 +124,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                 }
             }
         }
-        private XmlNode nuevoUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img)
+        private XmlNode nuevoUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img,string fechaUser)
         {
             XmlNode nuevoUsuario = auxDoc.CreateElement("usuario");
             
@@ -152,6 +152,10 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             XmlElement auxImg = auxDoc.CreateElement("Img");
             auxImg.InnerText = img;
             nuevoUsuario.AppendChild(auxImg);
+
+            XmlElement auxFecha = auxDoc.CreateElement("FechaNacimiento");
+            auxFecha.InnerText = fechaUser;
+            nuevoUsuario.AppendChild(auxFecha);
 
             XmlElement auxPublic = auxDoc.CreateElement("Publicacion");
             auxPublic.InnerText = "";
@@ -196,7 +200,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
          
             return auxAmigo;
         }
-        string correo,nombre,usuario,contraseña,img;
+        string correo, nombre, usuario, contraseña, img, fechaUsuario;
       
         public void leerXml(string nombreXml)
         {
@@ -225,13 +229,17 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                                 break;
                             case "Img":
                                 img = reader.ReadString();
-                                Program.objUsuarioXml2 = new Usuario.ClaseUsuario(correo, nombre, usuario, contraseña, img);
+                                break;
+                            case "FechaNacimiento":
+                                fechaUsuario = reader.ReadString();
+                                Program.objUsuarioXml2 = new Usuario.ClaseUsuario(correo, nombre, usuario, contraseña, img,fechaUsuario);
                                 Program.objArbolAvl.insertar(Program.objUsuarioXml2);
                                 correo = "";
                                 nombre = "";
                                 usuario = "";
                                 contraseña = "";
                                 img = "";
+                                fechaUsuario = "";
                                 break;
                         }
 
@@ -262,6 +270,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                 string correo = unUsuario.SelectSingleNode("Correo").InnerText;
                 string contraseña = unUsuario.SelectSingleNode("Contraseña").InnerText;
                 string img = unUsuario.SelectSingleNode("Img").InnerText;
+                string fechaNacimiento = unUsuario.SelectSingleNode("FechaNacimiento").InnerText;
 
                 Program.objUsuarioXml2 = new Usuario.ClaseUsuario();
                 Program.objUsuarioXml2.usuario = usuario;
@@ -269,6 +278,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                 Program.objUsuarioXml2.correo = correo;
                 Program.objUsuarioXml2.contraseña = contraseña;
                 Program.objUsuarioXml2.imagenProfile = img;
+                Program.objUsuarioXml2.fechaUsurio = fechaNacimiento;
                 //Program.objUsuarioXml2 = new Usuario.ClaseUsuario(correo, nombre, usuario, contraseña, img);
 
 
@@ -318,17 +328,19 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             }
         }
 
-        public void actualizarUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string nombreXml)
+        public void actualizarUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string nombreXml, string fechaUser)
         {
             auxDoc = new XmlDocument();
 
             rutaXml = @"" + nombreXml + ".xml";
 
+            auxDoc.Load(rutaXml);
+
             XmlElement empleados = auxDoc.DocumentElement;
 
             XmlNodeList listaEmpleados = auxDoc.SelectNodes("Usuarios/usuario");
 
-            XmlNode nuevo_empleado = nuevoUsuario(usuario, nombre, biografia, correo, contraseña, img);
+            XmlNode nuevo_empleado = nuevoUsuario(usuario, nombre, biografia, correo, contraseña, img,fechaUser);
 
             foreach (XmlNode item in listaEmpleados)
             {

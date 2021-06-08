@@ -15,22 +15,24 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
         public string usuario { get; set; }
         public string contraseña { get; set; }
         public string imagenProfile { get; set; }
-
-        public listaDoble miLista;
+        public string fechaUsurio { get; set; }
         public string comentarioUsuario { get; set; }
         public string imgPublicacion { get; set; }
+
+        public listaDoble miLista;
 
         public TablaDispercionColision tablaHashSeguidores;
 
         public TablaDispercionColision tablaHashSeguidos;
 
-        public ClaseUsuario(string correo, string nombre, string usuario, string contraseña, string imagenProfile)
+        public ClaseUsuario(string correo, string nombre, string usuario, string contraseña, string imagenProfile,string fechaUsuario)
         {
             this.correo = correo;
             this.nombre = nombre;
             this.usuario = usuario;
             this.contraseña = contraseña;
             this.imagenProfile = imagenProfile;
+            this.fechaUsurio = fechaUsurio;
         }
 
         public ClaseUsuario()

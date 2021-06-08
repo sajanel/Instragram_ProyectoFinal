@@ -231,7 +231,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
                 return raizSub;
             else if (buscado.UsuarioMenor(raizSub.valorNodo()))
                 return buscarUsuario(raizSub.subarbolIzq(), buscado);
-            else
+            else if (buscado.UsuarioMayor(raizSub.valorNodo()))        
                 return buscarUsuario(raizSub.subarbolDch(), buscado);
             return null;
         }

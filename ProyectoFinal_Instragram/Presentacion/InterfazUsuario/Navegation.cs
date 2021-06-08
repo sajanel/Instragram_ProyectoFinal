@@ -72,13 +72,17 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
             Random r = new Random();
             int cont = 1;
+
+           
             for (int i = 0; i < 4; i++)
             {
+
+      
                 //Genera un numero entre 10 y 100 (101 no se incluye)
-                Console.WriteLine(r.Next(0, 3));
+               // Console.WriteLine(r.Next(0, 3));
                 if (cont == 1)
                 {
-                    string[] arrUsuario = arrayUsuarios[r.Next(0, 3)].Split(',');
+                    string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
                     pictureBox4.WaitOnLoad = false;
                     pictureBox4.LoadAsync(@"" + arrUsuario[0]);
                     label2.Text = arrUsuario[1];
@@ -96,7 +100,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 }
                 if (cont == 2)
                 {
-                    string[] arrUsuario = arrayUsuarios[r.Next(0, 3)].Split(',');
+                    string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
                     pictureBox5.WaitOnLoad = false;
                     pictureBox5.LoadAsync(@"" + arrUsuario[0]);
                     label3.Text = arrUsuario[1];
@@ -104,7 +108,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 }
                 if (cont == 3)
                 {
-                    string[] arrUsuario = arrayUsuarios[r.Next(0, 3)].Split(',');
+                    string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
                     pictureBox6.WaitOnLoad = false;
                     pictureBox6.LoadAsync(@"" + arrUsuario[0]);
                     label4.Text = arrUsuario[1];
@@ -112,7 +116,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 }
                 if (cont == 4)
                 {
-                    string[] arrUsuario = arrayUsuarios[r.Next(0, 3)].Split(',');
+                    string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
                     pictureBox7.WaitOnLoad = false;
                     pictureBox7.LoadAsync(@"" + arrUsuario[0]);
                     label5.Text = arrUsuario[1];

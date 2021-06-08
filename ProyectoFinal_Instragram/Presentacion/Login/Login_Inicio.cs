@@ -78,7 +78,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
                     miXml.eliminarXml("UsuarioTemp");
                     miXml.crearXml("UsuarioTemp");
                     miXml.añadirUsuario(encontradoUsuario.usuario, encontradoUsuario.nombre, "", encontradoUsuario.correo,
-                        encontradoUsuario.contraseña, encontradoUsuario.imagenProfile , "UsuarioTemp");
+                        encontradoUsuario.contraseña, encontradoUsuario.imagenProfile , encontradoUsuario.fechaUsurio,"UsuarioTemp");
                     //miXmlTemp.leerXml("UsuarioTemp");
 
                     Navegation Formulario = new Navegation();

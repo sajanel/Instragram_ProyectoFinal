@@ -27,10 +27,16 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         AuxXml miXml = new AuxXml();
         OpenFileDialog buscarFoto;
         string urlFoto = "";
+        string urProfile = "";
+        string fechaNacimiento = "";
 
         public EditarPerfil()
         {
             InitializeComponent();
+            dateTimePicker1.Visible = false;
+            txtContraseña.Enabled = false;
+            desbloquearComandos(false);
+            
         }
         XmlDocument doc;
 
@@ -64,74 +70,12 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
+            fechaNacimiento = dateTimePicker1.Value.ToString("dd/MM/yyyy"); //Fecha Usuario
             //ELIMINAR LOS DATOS DEL ARBOL Y LUEGO LEER OTRA VEZ EL XML USUARIOSINTA
-            
+            miXml.actualizarUsuario(txtUsuario.Text,txtNombre.Text,txtBiografia.Text,txtCorreo.Text,txtNuevaContra.Text,urProfile, "UsuariosInsta",fechaNacimiento );
+            SalirFomulario();
+            miXml.actualizarUsuario(txtUsuario.Text, txtNombre.Text, txtBiografia.Text, txtCorreo.Text, txtNuevaContra.Text, urProfile, "UsuarioTemp", fechaNacimiento);
 
-            try
-            {
-                doc = new XmlDocument();
-
-                doc.Load(@"UsuarioTemp.xml");
-
-
-                XmlElement usuarios = doc.DocumentElement;
-
-                XmlNodeList listaEmpleados = doc.SelectNodes("Usuarios/usuario");
-
-                XmlNode editarUsuario = editarXml(txtNombre.Text, txtUsuario.Text, txtBiografia.Text, txtCorreo.Text);
-
-                foreach (XmlNode item in listaEmpleados)
-                {
-
-                    if (item.FirstChild.InnerText == txtUsuario.Text)
-                    {
-                        XmlNode nodoOld = item;
-                        usuarios.ReplaceChild(editarUsuario, nodoOld);
-
-                    }
-                }
-
-                doc.Save(@"UsuarioTemp.xml");
-                MessageBox.Show("EDITADO CORRECTAMENTE");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("FALLO EN LA EDICION"+ex);
-            }
-        }
-
-        private XmlNode editarXml(string nombre, string usuario, string biografia, string correo)
-        {
-
-            XmlNode usser = doc.CreateElement("usuario");
-
-            XmlElement xmlUsuario = doc.CreateElement("Usuario");
-            xmlUsuario.InnerText = usuario;
-            usser.AppendChild(xmlUsuario);
-
-            XmlElement xmlNombre = doc.CreateElement("Nombre");
-            xmlNombre.InnerText = nombre;
-            usser.AppendChild(xmlNombre);
-
-            XmlElement xmlBiografia = doc.CreateElement("Biografia");
-            xmlBiografia.InnerText = biografia;
-            usser.AppendChild(xmlBiografia);
-
-
-            XmlElement xmlCorreo = doc.CreateElement("Correo");
-            xmlCorreo.InnerText = correo;
-            usser.AppendChild(xmlCorreo);
-
-            XmlElement xmlContraseña = doc.CreateElement("Contraseña");
-            xmlContraseña.InnerText = "325";
-            usser.AppendChild(xmlContraseña);
-
-            XmlElement xmlImg = doc.CreateElement("Img");
-            xmlImg.InnerText = "IMG.png";
-            usser.AppendChild(xmlImg);
-
-
-            return usser;
         }
 
         private void EditarPerfil_Load(object sender, EventArgs e)
@@ -158,9 +102,16 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                             case "Correo":
                                 txtCorreo.Text = reader.ReadString();
                                 break;
+                            case "Contraseña":
+                                txtContraseña.Text = reader.ReadString();
+                                break; 
                             case "Img":
+                                urProfile = reader.ReadString();
                                 pictureBox2.WaitOnLoad = false;
-                                pictureBox2.LoadAsync(@"" + reader.ReadString());
+                                pictureBox2.LoadAsync(@"" + urProfile);
+                                break;
+                            case "FechaNacimiento":
+                                lblFecha.Text = reader.ReadString();
                                 break;
                         }
                     }
@@ -172,7 +123,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Navegation Formulario = new Navegation();
+            PerfilUsuario Formulario = new PerfilUsuario();
             Formulario.Show();
             this.Hide();
         }
@@ -246,7 +197,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         public void SalirFomulario()
         {
-            MessageBox.Show("Se ha generado su publicacion correctamente", "informacion de la publiacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Se ha generado correctamente", "informacion del usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
             PerfilUsuario Formulario = new PerfilUsuario();
             Formulario.Show();
@@ -261,6 +212,48 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtContraPrueva_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNuevaContra == txtContraPrueva)
+            {           
+            }
+
+            else 
+            {
+                MessageBox.Show("Las contraseñas no son igules", "Confirmacion de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void desbloquearComandos(bool valor) 
+        {     
+            txtCorreo.Enabled = valor;
+            txtNombre.Enabled = valor;
+            txtNuevaContra.Enabled = valor;
+            txtBiografia.Enabled = valor;
+            txtContraPrueva.Enabled = valor;        
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (lblFecha.Visible == true)
+            {
+                lblFecha.Visible = false;
+                dateTimePicker1.Visible = true;
+                desbloquearComandos(true);
+            }
+            else
+            {
+                lblFecha.Visible = true;
+                dateTimePicker1.Visible = false;
+                desbloquearComandos(false);
+            }
         }
     }
 }

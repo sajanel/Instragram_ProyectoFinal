@@ -41,16 +41,19 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.btnEditarPerfil = new System.Windows.Forms.Button();
             this.btnExaminar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNuevaContra = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtContraPrueva = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,6 +65,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.auxUsuario = new System.Windows.Forms.TextBox();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,11 +86,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(453, 26);
+            this.label1.Location = new System.Drawing.Point(462, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 24);
+            this.label1.Size = new System.Drawing.Size(71, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Nombre";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -94,11 +98,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(459, 82);
+            this.label2.Location = new System.Drawing.Point(463, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 24);
+            this.label2.Size = new System.Drawing.Size(70, 19);
             this.label2.TabIndex = 5;
             this.label2.Text = "Usuario";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -106,11 +110,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(447, 142);
+            this.label3.Location = new System.Drawing.Point(454, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 24);
+            this.label3.Size = new System.Drawing.Size(79, 19);
             this.label3.TabIndex = 6;
             this.label3.Text = "Biografia";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -118,11 +122,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(459, 236);
+            this.label4.Location = new System.Drawing.Point(467, 185);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 24);
+            this.label4.Size = new System.Drawing.Size(66, 19);
             this.label4.TabIndex = 7;
             this.label4.Text = "Correo";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -131,20 +135,20 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // 
             this.txtNombre.Location = new System.Drawing.Point(577, 28);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(210, 23);
+            this.txtNombre.Size = new System.Drawing.Size(157, 23);
             this.txtNombre.TabIndex = 8;
             // 
             // txtUsuario
             // 
             this.txtUsuario.Enabled = false;
-            this.txtUsuario.Location = new System.Drawing.Point(577, 89);
+            this.txtUsuario.Location = new System.Drawing.Point(577, 70);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(210, 23);
+            this.txtUsuario.Size = new System.Drawing.Size(157, 23);
             this.txtUsuario.TabIndex = 9;
             // 
             // txtBiografia
             // 
-            this.txtBiografia.Location = new System.Drawing.Point(577, 151);
+            this.txtBiografia.Location = new System.Drawing.Point(577, 110);
             this.txtBiografia.Multiline = true;
             this.txtBiografia.Name = "txtBiografia";
             this.txtBiografia.Size = new System.Drawing.Size(210, 56);
@@ -152,9 +156,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(577, 241);
+            this.txtCorreo.Location = new System.Drawing.Point(577, 181);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(210, 23);
+            this.txtCorreo.Size = new System.Drawing.Size(157, 23);
             this.txtCorreo.TabIndex = 11;
             // 
             // btnEditarPerfil
@@ -182,60 +186,63 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.btnExaminar.UseVisualStyleBackColor = true;
             this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
             // 
-            // textBox1
+            // txtContraseña
             // 
-            this.textBox1.Location = new System.Drawing.Point(577, 297);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 23);
-            this.textBox1.TabIndex = 16;
+            this.txtContraseña.Location = new System.Drawing.Point(577, 297);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(157, 23);
+            this.txtContraseña.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(329, 294);
+            this.label5.Location = new System.Drawing.Point(363, 301);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(215, 24);
+            this.label5.Size = new System.Drawing.Size(170, 19);
             this.label5.TabIndex = 15;
             this.label5.Text = "Contraseña Antigua";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // textBox2
+            // txtNuevaContra
             // 
-            this.textBox2.Location = new System.Drawing.Point(577, 357);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 23);
-            this.textBox2.TabIndex = 18;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtNuevaContra.Location = new System.Drawing.Point(577, 357);
+            this.txtNuevaContra.Name = "txtNuevaContra";
+            this.txtNuevaContra.PasswordChar = '*';
+            this.txtNuevaContra.Size = new System.Drawing.Size(157, 23);
+            this.txtNuevaContra.TabIndex = 18;
+            this.txtNuevaContra.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(338, 352);
+            this.label6.Location = new System.Drawing.Point(374, 357);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(206, 24);
+            this.label6.Size = new System.Drawing.Size(159, 19);
             this.label6.TabIndex = 17;
             this.label6.Text = "Nueva Contraseña";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // textBox3
+            // txtContraPrueva
             // 
-            this.textBox3.Location = new System.Drawing.Point(577, 417);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 23);
-            this.textBox3.TabIndex = 20;
+            this.txtContraPrueva.Location = new System.Drawing.Point(577, 417);
+            this.txtContraPrueva.Name = "txtContraPrueva";
+            this.txtContraPrueva.PasswordChar = '*';
+            this.txtContraPrueva.Size = new System.Drawing.Size(157, 23);
+            this.txtContraPrueva.TabIndex = 20;
+            this.txtContraPrueva.TextChanged += new System.EventHandler(this.txtContraPrueva_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(231, 412);
+            this.label7.Location = new System.Drawing.Point(288, 417);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(313, 24);
+            this.label7.Size = new System.Drawing.Size(245, 19);
             this.label7.TabIndex = 19;
             this.label7.Text = "Confirmar Nueva Contraseña";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -276,28 +283,66 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnModificar);
+            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.lblFecha);
+            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnEditarPerfil);
             this.panel2.Controls.Add(this.btnExaminar);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.txtContraPrueva);
             this.panel2.Controls.Add(this.txtNombre);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtUsuario);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtNuevaContra);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txtContraseña);
             this.panel2.Controls.Add(this.txtBiografia);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtCorreo);
-            this.panel2.Location = new System.Drawing.Point(302, 159);
+            this.panel2.Location = new System.Drawing.Point(289, 186);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(842, 545);
             this.panel2.TabIndex = 23;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(577, 237);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(108, 25);
+            this.dateTimePicker1.TabIndex = 27;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 6, 8, 1, 24, 58, 0);
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblFecha.Location = new System.Drawing.Point(577, 242);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(46, 18);
+            this.lblFecha.TabIndex = 26;
+            this.lblFecha.Text = "fecha";
+            this.lblFecha.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label11.Location = new System.Drawing.Point(360, 244);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(173, 19);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "fecha de nacimiento";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // panel3
             // 
@@ -309,9 +354,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.panel3.Controls.Add(this.btnSubir);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(302, 159);
+            this.panel3.Location = new System.Drawing.Point(289, 160);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(842, 346);
+            this.panel3.Size = new System.Drawing.Size(867, 346);
             this.panel3.TabIndex = 24;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -419,23 +464,37 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // 
             // auxUsuario
             // 
+            this.auxUsuario.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.auxUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.auxUsuario.Enabled = false;
+            this.auxUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.auxUsuario.Location = new System.Drawing.Point(374, 130);
             this.auxUsuario.Name = "auxUsuario";
-            this.auxUsuario.Size = new System.Drawing.Size(100, 23);
+            this.auxUsuario.Size = new System.Drawing.Size(100, 16);
             this.auxUsuario.TabIndex = 25;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificar.Location = new System.Drawing.Point(85, 272);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(100, 29);
+            this.btnModificar.TabIndex = 30;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // EditarPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1020, 534);
+            this.ClientSize = new System.Drawing.Size(1165, 723);
             this.Controls.Add(this.auxUsuario);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "EditarPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -469,11 +528,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Button btnEditarPerfil;
         private System.Windows.Forms.Button btnExaminar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNuevaContra;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtContraPrueva;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox4;
@@ -490,5 +549,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private System.Windows.Forms.TextBox txtPublicaciones;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
