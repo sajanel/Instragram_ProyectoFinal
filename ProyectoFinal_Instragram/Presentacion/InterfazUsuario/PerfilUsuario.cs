@@ -125,6 +125,24 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Program.tipo = "";
+            Program.tipo = "Seguidos";
+            PerfilListaAmigos Formulario = new PerfilListaAmigos();
+            Formulario.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Program.tipo = "";
+            Program.tipo = "Seguidores";
+            PerfilListaAmigos Formulario = new PerfilListaAmigos();
+            Formulario.Show();
+            this.Hide();
+        }
+
 
         //private void button1_Click(object sender, EventArgs e)
         //{
@@ -133,9 +151,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         //private void btnSeguidor_Click(object sender, EventArgs e)
         //{
-         
+
         //    miXml.añadirInfoAmigo(txtComentario.Text, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
-        
+
         //}
 
 

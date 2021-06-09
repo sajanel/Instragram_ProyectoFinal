@@ -13,9 +13,14 @@ namespace ProyectoFinal_Instragram
     static class Program
     {
         static public string usuario, contraseña;
-        static public string miUsuario;
+        static public string miUsuario, miFoto;
         static public ArbolAvl objArbolAvl;
         static public ClaseUsuario objUsuarioXml2;
+        static public string tipo;
+        static public int cont;
+
+        static public PictureBox[] pictureBoxes = new PictureBox[20];
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

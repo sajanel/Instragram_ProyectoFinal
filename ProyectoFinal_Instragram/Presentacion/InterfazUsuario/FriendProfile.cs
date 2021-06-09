@@ -21,6 +21,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             InitializeComponent();
         }
 
+        string urlImgPerfil;
         private void FriendProfile_Load(object sender, EventArgs e)
         {
             ClaseUsuario objUsuario = new ClaseUsuario(Program.usuario,Program.contraseña);
@@ -33,6 +34,8 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
             fotoPerfil.WaitOnLoad = false;
             fotoPerfil.LoadAsync(@"" + encontradoUsuario.imagenProfile);
+
+            urlImgPerfil = encontradoUsuario.imagenProfile;
 
             lbNombre.Text = encontradoUsuario.nombre;
             lbUsuario.Text = encontradoUsuario.usuario;
@@ -91,24 +94,30 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             {
                 
 
-                miXml.añadirInfoAmigo(lbUsuario.Text, "Siguiendo", "siguiendo", "UsuariosInsta", Program.miUsuario);
+                miXml.añadirInfoAmigo(urlImgPerfil, lbUsuario.Text, "Siguiendo", "siguiendo", "UsuariosInsta", Program.miUsuario);
 
-                miXml.añadirInfoAmigo(Program.miUsuario, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
+                miXml.añadirInfoAmigo(Program.miFoto,Program.miUsuario, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
 
                 //converId(lbUsuario.Text);
 
                 //Program.objUsuarioXml2.insertarSiguiendo(lbUsuario.Text, Convert.ToString(converId(lbUsuario.Text)));
 
-                //INSERTAR EL USUARIO QUE SEGUI YO
+                //------------------------------Mi Usuario
                 ClaseUsuario objMiUsuario = new ClaseUsuario(Program.miUsuario);
-                ClaseUsuario encontradoMiUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objMiUsuario).valorNodo();
-                encontradoMiUsuario.insertarSiguiendo(lbUsuario.Text, Convert.ToString(converId(lbUsuario.Text)));
+                ClaseUsuario miUsuarioEncontrado = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objMiUsuario).valorNodo();
 
-                //converId(Program.miUsuario);
-                //INSERTAR MI NOMBRE EN LOS SEGUIDORES DEL QUE SIGO
-                ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
-                ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
-                encontradoUsuario.insertarSeguidores(Program.miUsuario, Convert.ToString(converId(Program.miUsuario)));
+                //-------------Usuario Amigo
+                ClaseUsuario objUsuarioAmigo = new ClaseUsuario(lbUsuario.Text);
+                ClaseUsuario usuarioAmigoEncontrado = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuarioAmigo).valorNodo();
+
+
+                //----INSERTAR USUARIO A MI TABLA SIGUIENDO
+                ClasePerfil perfilAmigo = new ClasePerfil(usuarioAmigoEncontrado.imagenProfile, lbUsuario.Text);
+                miUsuarioEncontrado.insertarSiguiendo(perfilAmigo, Convert.ToString(converId(lbUsuario.Text)));
+
+                //----INSERTAR MI USUARIO A LA TABLA DE LA OTRA PERSONA
+                ClasePerfil miPerfil = new ClasePerfil(Program.miFoto, Program.miUsuario);
+                usuarioAmigoEncontrado.insertarSeguidores(miPerfil, Convert.ToString(converId(Program.miUsuario)));
 
                 MessageBox.Show("Usted a seguido a " + lbUsuario.Text, "Información Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnSeguir.Enabled = false;

@@ -56,7 +56,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash.ListaSimple
             String resultado = "";
             while (temp != null)
             {
-                resultado = resultado + temp.Dato + " - ";
+                resultado = resultado + temp.Dato + ";";
                 temp = temp.Enlace;
             }
             return resultado;

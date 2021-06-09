@@ -137,6 +137,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label3.Size = new System.Drawing.Size(107, 22);
             this.label3.TabIndex = 5;
             this.label3.Text = "seguidores";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -148,6 +149,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label4.Size = new System.Drawing.Size(89, 22);
             this.label4.TabIndex = 6;
             this.label4.Text = "seguidos";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // lbPosts
             // 

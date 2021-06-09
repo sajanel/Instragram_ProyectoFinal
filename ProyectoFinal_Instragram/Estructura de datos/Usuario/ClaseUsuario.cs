@@ -63,11 +63,11 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.Usuario
             PublicacionesUsuario misPublicaciones = new PublicacionesUsuario(comentarioUsuario, imgPublicacion);
             miLista.insertarAlInicio(misPublicaciones);
         }
-        public void insertarSeguidores(string oj, string user)
+        public void insertarSeguidores(object oj, string user)
         {
             tablaHashSeguidores.Insertar(oj, user);
         }
-        public void insertarSiguiendo(string oj, string user)
+        public void insertarSiguiendo(object oj, string user)
         {
             tablaHashSeguidos.Insertar(oj, user);
         }

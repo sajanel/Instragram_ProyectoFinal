@@ -74,6 +74,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
                     MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
 
                     Program.miUsuario = encontradoUsuario.usuario;
+                    Program.miFoto = encontradoUsuario.imagenProfile;
 
                     miXml.eliminarXml("UsuarioTemp");
                     miXml.crearXml("UsuarioTemp");

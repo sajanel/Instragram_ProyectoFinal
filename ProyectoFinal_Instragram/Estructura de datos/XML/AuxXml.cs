@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -84,7 +86,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             }
         }
 
-        public void añadirInfoAmigo(string infAmigo, string datoCambiante, string datoAmigo, string nombreXml, string user)
+        public void añadirInfoAmigo(string urlImg,string infAmigo, string datoCambiante, string datoAmigo, string nombreXml, string user)
         {
             auxDoc = new XmlDocument();
             rutaXml = @"" + nombreXml + ".xml";
@@ -94,7 +96,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
 
             XmlNodeList listaEmpleados = auxDoc.SelectNodes("Usuarios/usuario");
 
-            XmlNode nuevo_empleado = nuevosSeguidores(infAmigo,datoAmigo);
+            XmlNode nuevo_empleado = nuevosSeguidores(urlImg,infAmigo,datoAmigo);
 
             //XmlNode nodoRaiz = auxDoc.SelectSingleNode("Usuarios/usuario/"+datoCambiante+"/"+datoAmigo);
             foreach (XmlNode item in listaEmpleados)
@@ -182,7 +184,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             return Aux;
         }
 
-        public XmlNode nuevosSeguidores(string infAmigo,string datoAmigo)
+        public XmlNode nuevosSeguidores(string urlImg, string infAmigo,string datoAmigo)
         {
             /*
                 <Seguidores>           
@@ -196,7 +198,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             //Aca le enviamos una variable indicandole si va a ser seguidor o seguido   
 
             XmlElement auxAmigo = auxDoc.CreateElement(datoAmigo);
-            auxAmigo.InnerText = infAmigo;
+            auxAmigo.InnerText = urlImg+","+infAmigo;
          
             return auxAmigo;
         }
@@ -305,7 +307,13 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                     {
                         cadena = cadena + item;
                     }
-                    Program.objUsuarioXml2.insertarSiguiendo(siguiendo, Convert.ToString(cadena));
+
+                    string nuevo = siguiendo;
+                    string[] palabras = nuevo.Split(',');
+
+                    ClasePerfil miPerfilUsuario = new ClasePerfil(palabras[0],palabras[1]);
+
+                    Program.objUsuarioXml2.insertarSiguiendo(miPerfilUsuario, Convert.ToString(cadena));
                 }
                 //SEGUIDORES
                 XmlNodeList listaSeguidores = unUsuario.SelectNodes("Seguidores/seguidor");
@@ -320,7 +328,13 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                     {
                         cadena = cadena + item;
                     }
-                    Program.objUsuarioXml2.insertarSeguidores(seguidores, Convert.ToString(cadena));
+
+                    string nuevos = seguidores;
+                    string[] palabra = nuevos.Split(',');
+
+                    ClasePerfil miPerfilUsuario2 = new ClasePerfil(palabra[0], palabra[1]);
+
+                    Program.objUsuarioXml2.insertarSeguidores(miPerfilUsuario2, Convert.ToString(cadena));
                 }
 
 

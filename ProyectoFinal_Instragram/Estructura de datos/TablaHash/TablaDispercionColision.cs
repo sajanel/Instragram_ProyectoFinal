@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,28 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.TablaHash
                 return null;
             else
                 return tabla[Posicion].BuscarNodo(Clave);
+        }
+
+        public static Queue miCola = new Queue();
+        public void Mostar()
+        {
+            foreach (var item in tabla)
+            {
+                if (item != null)
+                {
+                    string message = item.MuestraLista().ToString();
+
+                    string[] palabras = message.Split(';');
+
+                    for (int ix = 0; ix < palabras.Length; ix++)
+                    {
+                        if (palabras[ix] != "")
+                        {
+                            miCola.Enqueue(palabras[ix]);
+                        }
+                    }
+                }
+            }
         }
 
     }
