@@ -51,6 +51,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -65,7 +66,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.auxUsuario = new System.Windows.Forms.TextBox();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminacion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -283,6 +284,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnEliminacion);
             this.panel2.Controls.Add(this.btnModificar);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.lblFecha);
@@ -309,6 +311,17 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.panel2.Size = new System.Drawing.Size(842, 545);
             this.panel2.TabIndex = 23;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificar.Location = new System.Drawing.Point(85, 272);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(108, 29);
+            this.btnModificar.TabIndex = 30;
+            this.btnModificar.Text = "Modificar cuenta";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // dateTimePicker1
             // 
@@ -473,16 +486,16 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.auxUsuario.Size = new System.Drawing.Size(100, 16);
             this.auxUsuario.TabIndex = 25;
             // 
-            // btnModificar
+            // btnEliminacion
             // 
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnModificar.Location = new System.Drawing.Point(85, 272);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(100, 29);
-            this.btnModificar.TabIndex = 30;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnEliminacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminacion.Location = new System.Drawing.Point(85, 326);
+            this.btnEliminacion.Name = "btnEliminacion";
+            this.btnEliminacion.Size = new System.Drawing.Size(108, 29);
+            this.btnEliminacion.TabIndex = 31;
+            this.btnEliminacion.Text = "Eliminar cuenta";
+            this.btnEliminacion.UseVisualStyleBackColor = true;
+            this.btnEliminacion.Click += new System.EventHandler(this.btnEliminacion_Click);
             // 
             // EditarPerfil
             // 
@@ -553,5 +566,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminacion;
     }
 }

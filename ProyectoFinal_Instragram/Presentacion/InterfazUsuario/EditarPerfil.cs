@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
-using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
+using ProyectoFinal_Instragram.Presentacion.Login;
 using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
 using System.Xml;
 
@@ -70,12 +70,24 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
-            fechaNacimiento = dateTimePicker1.Value.ToString("dd/MM/yyyy"); //Fecha Usuario
             //ELIMINAR LOS DATOS DEL ARBOL Y LUEGO LEER OTRA VEZ EL XML USUARIOSINTA
-            miXml.actualizarUsuario(txtUsuario.Text,txtNombre.Text,txtBiografia.Text,txtCorreo.Text,txtNuevaContra.Text,urProfile, "UsuariosInsta",fechaNacimiento );
-            SalirFomulario();
-            miXml.actualizarUsuario(txtUsuario.Text, txtNombre.Text, txtBiografia.Text, txtCorreo.Text, txtNuevaContra.Text, urProfile, "UsuarioTemp", fechaNacimiento);
 
+            if (txtBiografia.Text == "" || txtContraPrueva.Text == "" || txtNuevaContra.Text == "" || txtUsuario.Text == "")
+            {
+                MessageBox.Show("Llene todos los campos", "Modificar cuenta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txtNuevaContra.Text != txtContraPrueva.Text)
+            {
+                MessageBox.Show("las contraseñas son distintas", "Modificar cuenta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            else
+            {
+                fechaNacimiento = dateTimePicker1.Value.ToString("dd/MM/yyyy"); //Fecha Usuario
+                miXml.actualizarUsuario(txtUsuario.Text, txtNombre.Text, txtBiografia.Text, txtCorreo.Text, txtNuevaContra.Text, urProfile, "UsuariosInsta", fechaNacimiento);
+                SalirFomulario();
+                miXml.actualizarUsuario(txtUsuario.Text, txtNombre.Text, txtBiografia.Text, txtCorreo.Text, txtNuevaContra.Text, urProfile, "UsuarioTemp", fechaNacimiento);
+            }
         }
 
         private void EditarPerfil_Load(object sender, EventArgs e)
@@ -237,7 +249,8 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             txtNombre.Enabled = valor;
             txtNuevaContra.Enabled = valor;
             txtBiografia.Enabled = valor;
-            txtContraPrueva.Enabled = valor;        
+            txtContraPrueva.Enabled = valor;
+            btnEditarPerfil.Enabled = valor;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -253,6 +266,24 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 lblFecha.Visible = true;
                 dateTimePicker1.Visible = false;
                 desbloquearComandos(false);
+            }
+        }
+
+        private void btnEliminacion_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Desea eliminar esta cuenta", "informacion del usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
+            {
+            }
+            else
+            {
+
+                miXml.eliminarUsuario(txtUsuario.Text, "UsuariosInsta");
+
+                MessageBox.Show("Se ha elimindo correctamente", "informacion del usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Hide();
+                Login_Inicio formulario = new Login_Inicio();
+                formulario.Show();
             }
         }
     }

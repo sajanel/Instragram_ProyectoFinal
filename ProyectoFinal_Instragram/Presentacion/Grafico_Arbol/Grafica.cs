@@ -19,6 +19,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
         ArbolAvl miArbol = Program.objArbolAvl;
 
         int nivelArbol = 0;
+        int contadorGenerico = 0;
         public Grafica()
         {
             InitializeComponent();
@@ -41,19 +42,20 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
 
             string nuevo = ArbolAvl.rcPreorden(miArbol.raizArbol());
 
-            string[] palabras = nuevo.Split(',');
+            string[] palabras = nuevo.Split(',', ';');
 
             foreach (string palabra in palabras)
             {
-                if (palabra != "")
+                contadorGenerico++;
+                if (palabra != "" && contadorGenerico % 2 == 0)
                 {
                     dibujaArbol.inserta_nodo(dibujaArbol.Raiz, null, palabra, 0);
                     nivelArbolGrafica();
                 }
+
             }
 
             listBox2.Items.Add(nivelArbolGrafica());
-
         }
     
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -70,15 +72,15 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             {
                 case 0:
                     
-                    recorridoPreorden(0);
+                    recorridoPreorden(0,0);
                     break;
 
                 case 1:
-                    recorridoInorden(0);
+                    recorridoInorden(0,0);
                     break;
 
                 case 2:
-                    recorridoPostorden(0);
+                    recorridoPostorden(0,0);
                     break;
 
                 default:
@@ -86,64 +88,64 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
                     break;
             }
         }
-
-        public void recorridoPreorden(int cont)
+        public void recorridoPreorden(int cont, int auxCont)
         {
             listRecorrido.Items.Clear();
             string nuevo = ArbolAvl.rcPreorden(miArbol.raizArbol());
-            string[] palabras = nuevo.Split(',');
+            string[] palabras = nuevo.Split(',', ';');
 
             foreach (string palabra in palabras)
             {
-                if (palabra != "")
+                auxCont++;
+
+                if (palabra != "" && auxCont % 2 == 0)
                 {
                     cont++;
                     listRecorrido.Items.Add("Usuarios registrados" + " --->  " + palabra);
-                  
                 }
-                
             }
             listBox1.Items.Add(cont);
         }
 
-        public void recorridoInorden(int cont)
+        public void recorridoInorden(int cont, int auxCont)
         {
             listRecorrido.Items.Clear();
             string nuevo = ArbolAvl.rcInorden(miArbol.raizArbol());
-            string[] palabras = nuevo.Split(',');
+            string[] palabras = nuevo.Split(',', ';');
 
             foreach (string palabra in palabras)
             {
-                if (palabra != "")
+                auxCont++;
+
+                if (palabra != "" && auxCont % 2 == 0)
                 {
                     cont++;
                     listRecorrido.Items.Add("Usuarios registrados" + " --->  " + palabra);
-                 
                 }
-          
             }
             listBox1.Items.Add(cont);
         }
 
-        public void recorridoPostorden(int cont)
+        public void recorridoPostorden(int cont, int auxCont)
         {
             listRecorrido.Items.Clear();
             string nuevo = ArbolAvl.rcpostOrden(miArbol.raizArbol());
-            string[] palabras = nuevo.Split(',');
+            string[] palabras = nuevo.Split(',', ';');
+
 
             foreach (string palabra in palabras)
             {
-                if (palabra != "")
+                auxCont++;
+
+                if (palabra != "" && auxCont % 2 == 0)
                 {
                     cont++;
                     listRecorrido.Items.Add("Usuarios registrados" + " --->  " + palabra);
-             
                 }
             }
-            listBox1.Items.Add ( cont);
+            listBox1.Items.Add(cont);
         }
-
-        public int nivelArbolGrafica() 
+        public int nivelArbolGrafica()
         {
             if (nivelArbol < dibujaArbol.contador)
             {
@@ -151,7 +153,5 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             }
             return nivelArbol;
         }
-
-     
     }
 }

@@ -354,5 +354,30 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             auxDoc.Save(rutaXml);
         }
 
+        public void eliminarUsuario(string id_borrar, string nombreXml)
+        {
+
+            auxDoc = new XmlDocument();
+
+            rutaXml = @"" + nombreXml + ".xml";
+
+            auxDoc.Load(rutaXml);
+
+            XmlNode empleados = auxDoc.DocumentElement;
+
+            XmlNodeList listaEmpleados = auxDoc.SelectNodes("Usuarios/usuario");
+
+            foreach (XmlNode item in listaEmpleados)
+            {
+                if (item.SelectSingleNode("Usuario").InnerText == id_borrar)
+                {
+
+                    XmlNode nodoOld = item;
+
+                    empleados.RemoveChild(nodoOld);
+                }
+            }
+            auxDoc.Save(rutaXml);
+        }
     }
 }

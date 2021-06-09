@@ -52,55 +52,63 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
 
         private void bntRegistrarUsuario_Click(object sender, EventArgs e)
         {
-          
-            miXml.crearCarpeta(txtUsuario.Text, "UsuariosInsta");
-
-            urlFoto = buscarFoto.FileName;
-
-            string nuevaRuta = Path.Combine(@"Perfiles/" + txtUsuario.Text, buscarFoto.SafeFileName);//Direccion imagen
-
-            string fechaNacimiento = dateTimePicker1.Value.ToString("dd/MM/yyyy"); //Fecha Usuario
-
-            string urlImg = "Perfiles/" + txtUsuario.Text + "/" + Path.GetFileName(urlFoto); //imagen del usuario
-
-            if (!File.Exists(nuevaRuta))
-            
+            if (txtContraseña.Text == "" || txtCorreo.Text == "" || txtFoto.Text == "" || txtNombre.Text == "" || txtUsuario.Text == "")
             {
-                File.Copy(urlFoto, nuevaRuta);
-            }
-            else
-            {
-                MessageBox.Show("La ruta de destino ya contiene un archivo con el mismo nombre.");
-            }
-
-            if (txtUsuario.TextLength < 4)
-            {
-                MessageBox.Show("El nombre de usuario es corto !!");
+                MessageBox.Show("Llene todos los campos", "Accesos de cuenta", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
             else
             {
-                string cadenaUsuario = txtUsuario.Text;
 
-                ClaseUsuario miUsuario = new ClaseUsuario(cadenaUsuario.ToLower());
+                miXml.crearCarpeta(txtUsuario.Text, "UsuariosInsta");
 
-                //Program.objArbolAvl = new ArbolAvl();             
-                if (miArbol.buscarUsuario(miUsuario)== null)
+                urlFoto = buscarFoto.FileName;
+
+                string nuevaRuta = Path.Combine(@"Perfiles/" + txtUsuario.Text, buscarFoto.SafeFileName);//Direccion imagen
+
+                string fechaNacimiento = dateTimePicker1.Value.ToString("dd/MM/yyyy"); //Fecha Usuario
+
+                string urlImg = "Perfiles/" + txtUsuario.Text + "/" + Path.GetFileName(urlFoto); //imagen del usuario
+
+                if (!File.Exists(nuevaRuta))
+
                 {
-                    
-                    ///Datos del usuario se almacenan en un arbol AVL, y a un XML
-                    miXml.añadirUsuario(cadenaUsuario.ToLower(), txtNombre.Text, "", txtCorreo.Text, txtContraseña.Text, urlImg, fechaNacimiento, "UsuariosInsta");
-                    objUsuario = new ClaseUsuario(txtCorreo.Text, txtNombre.Text, cadenaUsuario.ToLower(), txtContraseña.Text, "", fechaNacimiento);
-                    Program.objArbolAvl.insertar(objUsuario);
-                    SalirFomulario();
+                    File.Copy(urlFoto, nuevaRuta);
                 }
                 else
                 {
-                    MessageBox.Show("Ya esta registrado el usuario");
+                    MessageBox.Show("La ruta de destino ya contiene un archivo con el mismo nombre.");
+                }
+
+                if (txtUsuario.TextLength < 4)
+                {
+                    MessageBox.Show("El nombre de usuario es corto !!");
+
+                }
+
+                else
+                {
+                    string cadenaUsuario = txtUsuario.Text;
+
+                    ClaseUsuario miUsuario = new ClaseUsuario(cadenaUsuario.ToLower());
+
+                    //Program.objArbolAvl = new ArbolAvl();             
+                    if (miArbol.buscarUsuario(miUsuario) == null)
+                    {
+
+                        ///Datos del usuario se almacenan en un arbol AVL, y a un XML
+                        miXml.añadirUsuario(cadenaUsuario.ToLower(), txtNombre.Text, "", txtCorreo.Text, txtContraseña.Text, urlImg, fechaNacimiento, "UsuariosInsta");
+                        objUsuario = new ClaseUsuario(txtCorreo.Text, txtNombre.Text, cadenaUsuario.ToLower(), txtContraseña.Text, "", fechaNacimiento);
+                        Program.objArbolAvl.insertar(objUsuario);
+                        SalirFomulario();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya esta registrado el usuario");
+                    }
                 }
             }
-
 
         }
 
