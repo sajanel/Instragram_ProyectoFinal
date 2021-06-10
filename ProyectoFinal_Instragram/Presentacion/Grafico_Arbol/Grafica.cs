@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
 using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using System.IO;
 
 namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
 {
@@ -27,6 +28,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
         private void Grafica_Load(object sender, EventArgs e)
         {
             cargarGrafica();
+            vitacoras();
             comboBox1.SelectedIndex = 0;
         }
 
@@ -35,6 +37,15 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             Navegation Formulario = new Navegation();
             Formulario.Show();
             this.Hide();
+        }
+        public void vitacoras()
+        {
+            string dato;
+            TextReader leer = new StreamReader("Vitacora.txt");
+            while ((dato = leer.ReadLine()) != null)
+            {
+                listBox3.Items.Add(dato);
+            }
         }
         public void cargarGrafica()
         {

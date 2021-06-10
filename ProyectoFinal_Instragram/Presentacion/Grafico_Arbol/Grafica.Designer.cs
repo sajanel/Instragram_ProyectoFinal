@@ -41,6 +41,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picGrafica)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -62,9 +64,9 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(95)))));
             this.label1.Location = new System.Drawing.Point(270, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(309, 37);
+            this.label1.Size = new System.Drawing.Size(340, 37);
             this.label1.TabIndex = 5;
-            this.label1.Text = "𝓖𝓻𝓪𝓯𝓲𝓬𝓪 𝓭𝓮𝓵 𝓪𝓻𝓫𝓸𝓵";
+            this.label1.Text = "Grafica del arbol";
             // 
             // pictureBox1
             // 
@@ -93,7 +95,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             // listRecorrido
             // 
             this.listRecorrido.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listRecorrido.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.listRecorrido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(95)))));
             this.listRecorrido.FormattingEnabled = true;
             this.listRecorrido.ItemHeight = 15;
             this.listRecorrido.Location = new System.Drawing.Point(29, 53);
@@ -106,11 +108,11 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(95)))));
-            this.label5.Location = new System.Drawing.Point(14, 9);
+            this.label5.Location = new System.Drawing.Point(46, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(204, 21);
+            this.label5.Size = new System.Drawing.Size(142, 21);
             this.label5.TabIndex = 12;
-            this.label5.Text = "𝓡𝓮𝓬𝓸𝓻𝓻𝓲𝓭𝓸𝓼 𝓭𝓮𝓵 𝓪𝓻𝓫𝓸𝓵";
+            this.label5.Text = "Recorridos del arbol";
             // 
             // label6
             // 
@@ -119,9 +121,9 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(95)))));
             this.label6.Location = new System.Drawing.Point(14, 223);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(174, 21);
+            this.label6.Size = new System.Drawing.Size(138, 21);
             this.label6.TabIndex = 13;
-            this.label6.Text = "𝓒𝓪𝓷𝓽𝓲𝓭𝓪𝓭 𝓭𝓮 𝓷𝓸𝓭𝓸𝓼";
+            this.label6.Text = "Cantidad de nodos";
             // 
             // label2
             // 
@@ -130,9 +132,9 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(95)))));
             this.label2.Location = new System.Drawing.Point(14, 279);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 21);
+            this.label2.Size = new System.Drawing.Size(104, 21);
             this.label2.TabIndex = 15;
-            this.label2.Text = "𝓝𝓲𝓿𝓮𝓵 𝓭𝓮𝓵 á𝓻𝓫𝓸𝓵";
+            this.label2.Text = "Nivel del arbol";
             // 
             // listBox1
             // 
@@ -168,10 +170,32 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(841, 132);
+            this.panel1.Location = new System.Drawing.Point(870, 98);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(361, 327);
             this.panel1.TabIndex = 19;
+            // 
+            // listBox3
+            // 
+            this.listBox3.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(95)))));
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 17;
+            this.listBox3.Location = new System.Drawing.Point(870, 468);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(361, 191);
+            this.listBox3.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("MS Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(95)))));
+            this.label3.Location = new System.Drawing.Point(998, 444);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 21);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Vitacoras";
             // 
             // Grafica
             // 
@@ -179,6 +203,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1370, 653);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.listBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -209,5 +235,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Label label3;
     }
 }

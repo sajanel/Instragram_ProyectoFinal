@@ -11,6 +11,7 @@ using System.Xml;
 using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 using ProyectoFinal_Instragram.Estructura_de_datos.XML;
+using ProyectoFinal_Instragram.Estructura_de_datos.Vitacoras;
 using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
 
 namespace ProyectoFinal_Instragram.Presentacion.Login
@@ -95,11 +96,12 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
         private void Login_Inicio_Load(object sender, EventArgs e)
         {
             Program.objArbolAvl = new ArbolAvl();
-            
+            TxtArchivo miArchivo = new TxtArchivo();
+
             miXml = new AuxXml();
             miXml.crearXml("UsuariosInsta");
-
-            //miXml.leerXml("UsuariosInsta");
+            miArchivo.limiarTxt();
+         
             miXml.leerXmlCompleto("UsuariosInsta");
         }
     }

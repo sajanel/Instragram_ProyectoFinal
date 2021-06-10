@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using ProyectoFinal_Instragram.Estructura_de_datos.Vitacoras;
 namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
 {
     public class ArbolAvl : ArbolBinario
     {
         protected NodoAvl arbolRaiz;
+
+        public int factorEquilibrio { get; set; }
+
+        TxtArchivo archivoPlano = new TxtArchivo();
 
         public ArbolAvl()
         {
@@ -101,7 +106,6 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
             return n2;
         }
 
-
         public void insertar(Object valor)
         {
             Comparador dato;
@@ -131,20 +135,33 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
                     {
                         case 1:
                             raiz.fe = 0;
+                            factorEquilibrio = 0;
+                            archivoPlano.vitacoraArbol(factorEquilibrio, "Raiz", raiz);
+
                             h.enviarLogica(false);
                             break;
                         case 0:
                             raiz.fe = -1;
+                            factorEquilibrio = -1;
+                            archivoPlano.vitacoraArbol(factorEquilibrio, "Se inserta en la izquierda", raiz);
                             break;
                         case -1: // aplicar rotación a la izquierda
                             n1 = (NodoAvl)raiz.subarbolIzq();
                             if (n1.fe == -1)
+                            {
+                                factorEquilibrio = -2;
                                 raiz = rotacionII(raiz, n1);
-                            else
-                                raiz = rotacionID(raiz, n1);
-                            h.enviarLogica(false);
-                            break;
+                                archivoPlano.vitacoraArbol(factorEquilibrio, "Rotacion Izquierda Izquierda", raiz);
 
+                            }
+                            else
+                            {
+                                raiz = rotacionID(raiz, n1);
+                                archivoPlano.vitacoraArbol(factorEquilibrio, "Rotacion Izquierda Derecha", raiz);
+
+                                h.enviarLogica(false);
+                            }
+                            break;
                     }
                 }
             }
@@ -156,30 +173,38 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
 
                 if (h.valorLogico())
                 {
-
                     switch (raiz.fe)
                     {
                         case 1: // aplicar rotación a la derecha
                             n1 = (NodoAvl)raiz.subarbolDch();
                             if (n1.fe == +1)
+                            {
+                                factorEquilibrio = 2;
                                 raiz = rotacionDD(raiz, n1);
+                                archivoPlano.vitacoraArbol(factorEquilibrio, " Rotacion derecha derecha", raiz);
+
+                            }
                             else
+                            {
                                 raiz = rotacionDI(raiz, n1);
-                            h.enviarLogica(false);
+                                archivoPlano.vitacoraArbol(factorEquilibrio, " Rotacion derecha izquierda", raiz);
+                                h.enviarLogica(false);
+                            }
                             break;
                         case 0:
                             raiz.fe = +1;
+                            factorEquilibrio = 1;
+                            archivoPlano.vitacoraArbol(factorEquilibrio, "Hacia la Derecha", raiz);
                             break;
                         case -1:
                             raiz.fe = 0;
+                            factorEquilibrio = 0;
+                            archivoPlano.vitacoraArbol(factorEquilibrio, "Equilibrado", raiz);
                             h.enviarLogica(false);
                             break;
                     }
-
                 }
             }
-      
-
             return raiz;
         }
 
