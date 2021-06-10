@@ -69,7 +69,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -456,6 +455,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label5.Size = new System.Drawing.Size(47, 17);
             this.label5.TabIndex = 30;
             this.label5.Text = "label5";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -466,6 +466,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 29;
             this.label4.Text = "label4";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -550,23 +551,16 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox3.TabIndex = 14;
             this.pictureBox3.TabStop = false;
             // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(199, 0);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 121);
-            this.vScrollBar1.TabIndex = 27;
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.label8);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Controls.Add(this.label6);
             this.panel8.Controls.Add(this.pictureBox20);
             this.panel8.Controls.Add(this.pictureBox19);
             this.panel8.Controls.Add(this.pictureBox18);
-            this.panel8.Controls.Add(this.vScrollBar1);
             this.panel8.Location = new System.Drawing.Point(568, 53);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(216, 121);
@@ -580,6 +574,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 17);
             this.label8.TabIndex = 31;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -589,6 +584,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 17);
             this.label7.TabIndex = 30;
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -598,6 +594,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 17);
             this.label6.TabIndex = 28;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // pictureBox20
             // 
@@ -632,7 +629,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1370, 740);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -731,7 +728,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;

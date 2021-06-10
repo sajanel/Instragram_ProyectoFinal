@@ -87,14 +87,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                     pictureBox4.LoadAsync(@"" + arrUsuario[0]);
                     label2.Text = arrUsuario[1];
 
-                    //ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
-                    //ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
-                    //MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
-
-                    //miXml.eliminarXml("UsuarioAmigo");
-                    //miXml.crearXml("UsuarioAmigo");
-                    //miXml.añadirUsuario(encontradoUsuario.usuario, encontradoUsuario.nombre, "", encontradoUsuario.correo,
-                    //    encontradoUsuario.contraseña, encontradoUsuario.imagenProfile, "UsuarioAmigo");
 
                     cont++;
                 }
@@ -184,44 +176,51 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void label2_Click(object sender, EventArgs e)
         {
-            ClaseUsuario objUsuario = new ClaseUsuario(label2.Text);
-            ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
-            MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
-            Program.usuario = encontradoUsuario.usuario;
-            Program.contraseña = encontradoUsuario.contraseña;
-
-            FriendProfile Formulario = new FriendProfile();
-            Formulario.Show();
-            this.Hide();
+        
+            PerfilUsuario(label2.Text);
         }
+
 
         private void label3_Click(object sender, EventArgs e)
         {
-            ClaseUsuario objUsuario = new ClaseUsuario(label3.Text);
+            PerfilUsuario(label3.Text);
+        }
+
+        public void PerfilUsuario(string variable) 
+        {
+
+            ClaseUsuario objUsuario = new ClaseUsuario(variable);
             ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
-            MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
+         //   MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
             Program.usuario = encontradoUsuario.usuario;
             Program.contraseña = encontradoUsuario.contraseña;
 
             FriendProfile Formulario = new FriendProfile();
             Formulario.Show();
             this.Hide();
-        }
 
+        }
+        public void limiar() 
+        {
+            label6.Text = "";
+            label7.Text = "";
+            label8.Text = "";
+            pictureBox18 = null;
+            pictureBox19 = null;
+            pictureBox20 = null;
+        }
         private void txtBuscarUsuario_TextChanged(object sender, EventArgs e)
         {
             if (txtBuscarUsuario.Text == " " || txtBuscarUsuario.Text == "")
             {
                 panel8.Visible = false;
-                label6.Text = "";
-                label7.Text = "";
-                label8.Text = "";
+                limiar();
             }
             else
             {
                 panel8.Visible = true;
                 int contador = 0;
-                int aux=0;
+                int aux = 0, Aux=0;
                 
                 string nuevo = ArbolAvl.rcPreorden(miArbol.raizArbol());
                 string[] palabras = nuevo.Split(',', ';');
@@ -229,19 +228,62 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 foreach (string palabra in palabras)
                 {
                     contador++;
+                    Aux = contador;
                     if (palabra != "" && contador % 2 == 0)
                     {
                         if (palabra.StartsWith(txtBuscarUsuario.Text))
                         {
                             aux++;
-                            if (aux ==1) { label6.Text = palabra; panel8.Visible = true; }
-                            else if (aux == 2) { label7.Text = palabra; }
-                            else if (aux == 3) { label8.Text = palabra; }
+                            if (aux ==1) 
+                            { 
+                                pictureBox18.WaitOnLoad = false;
+                                pictureBox18.LoadAsync(@"" + palabras[Aux - 2]);
+                                label6.Text = palabra; panel8.Visible = true;
+                            
+                            }
+                            else if (aux == 2) 
+                            {
+                                pictureBox19.WaitOnLoad = false;
+                                pictureBox19.LoadAsync(@"" + palabras[Aux - 2]);
+                                label7.Text = palabra; 
+                            
+                            }
+                            else if (aux == 3) 
+                            {
+                                pictureBox20.WaitOnLoad = false;
+                                pictureBox20.LoadAsync(@"" + palabras[Aux - 2]);
+                                label8.Text = palabra; 
+                            
+                            }
 
                         }
                     }
                 }
             }
+        }
+        private void label4_Click(object sender, EventArgs e)
+        {
+            PerfilUsuario(label4.Text);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            PerfilUsuario(label5.Text);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            PerfilUsuario(label6.Text);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            PerfilUsuario(label7.Text);
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            PerfilUsuario(label8.Text);
         }
     }
 }
