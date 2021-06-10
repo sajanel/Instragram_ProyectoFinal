@@ -12,7 +12,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
 {
     public class AuxXml
     {
-        string rutaXml; 
+        string rutaXml;
         XmlDocument auxDoc;
         public void crearXml(string nombreXml)
         {
@@ -47,14 +47,14 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             File.Delete(rutaXml);
         }
 
-        public void añadirUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string fechaUser,string nombreXml)
+        public void añadirUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string fechaUser, string nombreXml)
         {
             auxDoc = new XmlDocument();
 
             rutaXml = @"" + nombreXml + ".xml";
             auxDoc.Load(rutaXml);
 
-            XmlNode empleado = nuevoUsuario(usuario,nombre,biografia,correo,contraseña,img, fechaUser);
+            XmlNode empleado = nuevoUsuario(usuario, nombre, biografia, correo, contraseña, img, fechaUser);
 
             XmlNode nodoRaiz = auxDoc.DocumentElement;
             nodoRaiz.InsertAfter(empleado, nodoRaiz.LastChild);
@@ -62,7 +62,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             auxDoc.Save(rutaXml);
         }
         //
-        public void añadirPublicacion(string imgPublicacion,string comenUsuario, string nombreXml,string user) 
+        public void añadirPublicacion(string imgPublicacion, string comenUsuario, string nombreXml, string user)
         {
             auxDoc = new XmlDocument();
             rutaXml = @"" + nombreXml + ".xml";
@@ -74,7 +74,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
 
             XmlNode nuevo_empleado = nuevaPublicacion(imgPublicacion, comenUsuario);
 
-          //  XmlNode nodoRaiz = auxDoc.SelectSingleNode("Usuarios/usuario/Publicacion");
+            //  XmlNode nodoRaiz = auxDoc.SelectSingleNode("Usuarios/usuario/Publicacion");
             foreach (XmlNode item in listaEmpleados)
             {
                 if (item.FirstChild.InnerText == user)
@@ -86,17 +86,17 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             }
         }
 
-        public void añadirInfoAmigo(string urlImg,string infAmigo, string datoCambiante, string datoAmigo, string nombreXml, string user)
+        public void añadirInfoAmigo(string urlImg, string infAmigo, string datoCambiante, string datoAmigo, string nombreXml, string user)
         {
             auxDoc = new XmlDocument();
             rutaXml = @"" + nombreXml + ".xml";
             auxDoc.Load(rutaXml);
 
-         //   XmlElement empleados = auxDoc.DocumentElement;
+            //   XmlElement empleados = auxDoc.DocumentElement;
 
             XmlNodeList listaEmpleados = auxDoc.SelectNodes("Usuarios/usuario");
 
-            XmlNode nuevo_empleado = nuevosSeguidores(urlImg,infAmigo,datoAmigo);
+            XmlNode nuevo_empleado = nuevosSeguidores(urlImg, infAmigo, datoAmigo);
 
             //XmlNode nodoRaiz = auxDoc.SelectSingleNode("Usuarios/usuario/"+datoCambiante+"/"+datoAmigo);
             foreach (XmlNode item in listaEmpleados)
@@ -126,10 +126,10 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                 }
             }
         }
-        private XmlNode nuevoUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img,string fechaUser)
+        private XmlNode nuevoUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string fechaUser)
         {
             XmlNode nuevoUsuario = auxDoc.CreateElement("usuario");
-            
+
             XmlElement auxUsuario = auxDoc.CreateElement("Usuario");
             auxUsuario.InnerText = usuario;
             //auxUsuario.SetAttribute("Id","08");
@@ -167,7 +167,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             auxSeguidor.InnerText = "";
             nuevoUsuario.AppendChild(auxSeguidor);
 
-            XmlElement auxSiguiendo= auxDoc.CreateElement("Seguidores");
+            XmlElement auxSiguiendo = auxDoc.CreateElement("Seguidores");
             auxSiguiendo.InnerText = "";
             nuevoUsuario.AppendChild(auxSiguiendo);
 
@@ -175,16 +175,16 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
         }
 
         //
-        public XmlNode nuevaPublicacion(string publi,string comentario)
+        public XmlNode nuevaPublicacion(string publi, string comentario)
         {
 
             XmlElement Aux = auxDoc.CreateElement("publicacion");
-            Aux.InnerText = publi+","+comentario;
+            Aux.InnerText = publi + "," + comentario;
 
             return Aux;
         }
 
-        public XmlNode nuevosSeguidores(string urlImg, string infAmigo,string datoAmigo)
+        public XmlNode nuevosSeguidores(string urlImg, string infAmigo, string datoAmigo)
         {
             /*
                 <Seguidores>           
@@ -198,12 +198,12 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             //Aca le enviamos una variable indicandole si va a ser seguidor o seguido   
 
             XmlElement auxAmigo = auxDoc.CreateElement(datoAmigo);
-            auxAmigo.InnerText = urlImg+","+infAmigo;
-         
+            auxAmigo.InnerText = urlImg + "," + infAmigo;
+
             return auxAmigo;
         }
         string correo, nombre, usuario, contraseña, img, fechaUsuario;
-      
+
         public void leerXml(string nombreXml)
         {
             rutaXml = @"" + nombreXml + ".xml";
@@ -234,7 +234,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                                 break;
                             case "FechaNacimiento":
                                 fechaUsuario = reader.ReadString();
-                                Program.objUsuarioXml2 = new Usuario.ClaseUsuario(correo, nombre, usuario, contraseña, img,fechaUsuario);
+                                Program.objUsuarioXml2 = new Usuario.ClaseUsuario(correo, nombre, usuario, contraseña, img, fechaUsuario);
                                 Program.objArbolAvl.insertar(Program.objUsuarioXml2);
                                 correo = "";
                                 nombre = "";
@@ -311,7 +311,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                     string nuevo = siguiendo;
                     string[] palabras = nuevo.Split(',');
 
-                    ClasePerfil miPerfilUsuario = new ClasePerfil(palabras[0],palabras[1]);
+                    ClasePerfil miPerfilUsuario = new ClasePerfil(palabras[0], palabras[1]);
 
                     Program.objUsuarioXml2.insertarSiguiendo(miPerfilUsuario, Convert.ToString(cadena));
                 }
@@ -342,6 +342,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             }
         }
 
+      
         public void actualizarUsuario(string usuario, string nombre, string biografia, string correo, string contraseña, string img, string nombreXml, string fechaUser)
         {
             auxDoc = new XmlDocument();
@@ -354,7 +355,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
 
             XmlNodeList listaEmpleados = auxDoc.SelectNodes("Usuarios/usuario");
 
-            XmlNode nuevo_empleado = nuevoUsuario(usuario, nombre, biografia, correo, contraseña, img,fechaUser);
+            XmlNode nuevo_empleado = nuevoUsuario(usuario, nombre, biografia, correo, contraseña, img, fechaUser);
 
             foreach (XmlNode item in listaEmpleados)
             {
@@ -389,6 +390,41 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
                     XmlNode nodoOld = item;
 
                     empleados.RemoveChild(nodoOld);
+                }
+            }
+            auxDoc.Save(rutaXml);
+        }
+
+        public void eliminarPublicacion(string id_Publicacion, string id_Usuario, string nombreXml)
+        {
+            auxDoc = new XmlDocument();
+
+            rutaXml = @"" + nombreXml + ".xml";
+
+            auxDoc.Load(rutaXml);
+
+            XmlNodeList listaUsuarios = auxDoc.SelectNodes("Usuarios/usuario");
+
+
+            foreach (XmlNode item in listaUsuarios)
+            {
+                if (item.SelectSingleNode("Usuario").InnerText == id_Usuario)
+                {
+                    XmlNodeList listaPublicaciones = item.SelectNodes("Publicacion/publicacion");
+                    XmlElement el = (XmlElement)item.SelectSingleNode("Publicacion/publicacion");
+
+                    foreach (XmlNode items in listaPublicaciones)
+                    {
+                        //string[] auxPublicacion2 = items.SelectSingleNode("publicacion").InnerText.Split(',');
+                        string[] auxPublicacion2 = items.InnerText.Split(',');
+                        if (auxPublicacion2[0] == id_Publicacion)
+                        {
+                            XmlNode nodoPadres = listaUsuarios.Item(0);
+                            //XmlNode nodoPadre = item.SelectSingleNode("Publicacion");
+                            XmlNode nodoOld = items;
+                            el.ParentNode.RemoveChild(nodoOld);
+                        }
+                    }
                 }
             }
             auxDoc.Save(rutaXml);

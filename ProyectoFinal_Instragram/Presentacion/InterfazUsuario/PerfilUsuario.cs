@@ -11,6 +11,7 @@ using System.Xml;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
 using ProyectoFinal_Instragram.Estructura_de_datos.XML;
+using System.IO;
 
 namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 {
@@ -18,7 +19,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
     {
         //Instancias de objetos y de clases
         AuxXml miXml = new AuxXml();
-     
+        string Aux1, Aux2, Aux3, Aux4, Aux5;
 
         public PerfilUsuario()
         {
@@ -80,21 +81,31 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 {
                     pictureBox3.WaitOnLoad = false;
                     pictureBox3.LoadAsync(@"" + indice.dato.ToString());
+                    Aux1 = indice.dato.ToString();
                 }
                 if (i == 1)
                 {
                     pictureBox4.WaitOnLoad = false;
                     pictureBox4.LoadAsync(@"" + indice.dato.ToString());
+                    Aux2 = indice.dato.ToString();
                 }
                 if (i == 2)
                 {
                     pictureBox5.WaitOnLoad = false;
                     pictureBox5.LoadAsync(@"" + indice.dato.ToString());
+                    Aux3 = indice.dato.ToString();
                 }
                 if (i == 3)
                 {
                     pictureBox6.WaitOnLoad = false;
                     pictureBox6.LoadAsync(@"" + indice.dato.ToString());
+                    Aux4 = indice.dato.ToString();
+                }
+                if (i == 4)
+                {
+                    pictureBox7.WaitOnLoad = false;
+                    pictureBox7.LoadAsync(@"" + indice.dato.ToString());
+                    Aux5 = indice.dato.ToString();
                 }
 
                 i++;
@@ -117,11 +128,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
-            
-            if ("Sergio" == txtBusqueda.Text)
-            {
-                MessageBox.Show("Si son iugales");
-            }
+
 
         }
 
@@ -143,32 +150,66 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.Hide();
         }
 
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    miXml.añadirInfoAmigo(txtComentario.Text, "Siguiendo", "seguir", "UsuariosInsta", lbUsuario.Text);
-        //}
-
-        //private void btnSeguidor_Click(object sender, EventArgs e)
-        //{
-
-        //    miXml.añadirInfoAmigo(txtComentario.Text, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
-
-        //}
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            EliminarPublicacion(pictureBox3, Aux1);
 
 
-        //Codigo utilizado para los seguidores y seguiendo
+        }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    miXml.añadirInfoAmigo(txtComentario.Text, "Siguiendo", "seguir", "UsuariosInsta", lbUsuario.Text);
-        //}
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            EliminarPublicacion(pictureBox4, Aux1);
+        }
 
-        //private void btnSeguidor_Click(object sender, EventArgs e)
-        //{
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            EliminarPublicacion(pictureBox5, Aux1);
+        }
 
-        //    miXml.añadirInfoAmigo(txtComentario.Text, "Seguidores", "seguidor", "UsuariosInsta", lbUsuario.Text);
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            EliminarPublicacion(pictureBox6, Aux1);
+        }
 
-        //}
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            EliminarPublicacion(pictureBox7, Aux1);
+        }
+
+        public void EliminarPublicacion (PictureBox pictureBox,string Aux)   
+        {
+            if (MessageBox.Show("Seguro que desea eliminar esta publicacion", "Informacion de cuenta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+
+            }
+            else
+            {
+
+                pictureBox.Image.Dispose();
+                pictureBox.Image = null;
+
+                Application.DoEvents();
+                if (File.Exists(@"" + Aux) != true)
+                {
+
+                }
+                else
+                {
+
+                    File.Delete(@"" + Aux);
+                    
+                    miXml.eliminarPublicacion(Aux, lbUsuario.Text, "UsuariosInsta");
+                }
+               
+
+                this.Hide();
+                //Recargar formulario
+                PerfilUsuario Formulario = new PerfilUsuario();
+                Formulario.Show();
+               
+            }
+        }
+
     }
 }

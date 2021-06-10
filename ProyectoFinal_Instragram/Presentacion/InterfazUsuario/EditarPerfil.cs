@@ -178,9 +178,14 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void btnSubir_Click(object sender, EventArgs e)
         {
-            //miXml.crearCarpeta(txtUsuario.Text, "UsuariosInsta");
 
-            urlFoto = buscarFoto.FileName;
+            if (txtComentario.Text == "" || txtPublicaciones.Text == "")
+            {
+                MessageBox.Show("Llene todos los campos", "Accesos de cuenta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+                urlFoto = buscarFoto.FileName;
             string nuevaRuta = Path.Combine(@"Perfiles/" + auxUsuario.Text, buscarFoto.SafeFileName);
 
             string urlImg = "Perfiles/" + auxUsuario.Text + "/" + Path.GetFileName(urlFoto);

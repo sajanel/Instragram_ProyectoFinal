@@ -18,6 +18,11 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble
 
         /*Metodo para ver si la lista esta vacia*/
 
+        public void vaciar() 
+        {
+            inicio = fin = null;
+        }
+
         public Boolean Listavacia()
         {
             return inicio == null;
