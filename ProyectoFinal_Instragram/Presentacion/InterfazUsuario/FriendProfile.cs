@@ -119,6 +119,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 ClasePerfil miPerfil = new ClasePerfil(Program.miFoto, Program.miUsuario);
                 usuarioAmigoEncontrado.insertarSeguidores(miPerfil, Convert.ToString(converId(Program.miUsuario)));
 
+                //-------------Mostrar la cantidad
+                lbSeguidos.Text = usuarioAmigoEncontrado.tablaHashSeguidos.cont.ToString();
+                lbSeguidores.Text = usuarioAmigoEncontrado.tablaHashSeguidores.cont.ToString();
+                lbPosts.Text = usuarioAmigoEncontrado.miLista.cont.ToString();
+
                 MessageBox.Show("Usted a seguido a " + lbUsuario.Text, "Información Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnSeguir.Enabled = false;
             }
