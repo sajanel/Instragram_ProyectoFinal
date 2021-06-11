@@ -162,6 +162,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label4.Size = new System.Drawing.Size(89, 22);
             this.label4.TabIndex = 17;
             this.label4.Text = "seguidos";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -173,6 +174,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label3.Size = new System.Drawing.Size(107, 22);
             this.label3.TabIndex = 16;
             this.label3.Text = "seguidores";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -211,7 +213,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(949, 450);
             this.Controls.Add(this.btnEditarPerfil);
             this.Controls.Add(this.lbDescripcion);
             this.Controls.Add(this.lbNombre);

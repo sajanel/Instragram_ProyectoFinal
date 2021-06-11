@@ -506,9 +506,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.ClientSize = new System.Drawing.Size(1165, 723);
             this.Controls.Add(this.auxUsuario);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "EditarPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

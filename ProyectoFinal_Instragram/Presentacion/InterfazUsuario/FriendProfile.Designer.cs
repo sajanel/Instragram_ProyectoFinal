@@ -159,6 +159,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.label4.Size = new System.Drawing.Size(89, 22);
             this.label4.TabIndex = 17;
             this.label4.Text = "seguidos";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 

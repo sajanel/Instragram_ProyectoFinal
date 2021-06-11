@@ -57,8 +57,15 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 }
             }
 
+            
             ClaseUsuario objUsuario = new ClaseUsuario(Program.miUsuario);
             ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+
+            //Aca leer la cantidad de seguidores y seguidos 
+            lbSeguidos.Text = encontradoUsuario.tablaHashSeguidos.cont.ToString();
+            lbSeguidores.Text = encontradoUsuario.tablaHashSeguidores.cont.ToString();
+            lbPosts.Text = encontradoUsuario.miLista.cont.ToString();
+
 
             if (Program.tipo == "Seguidores")
             {
@@ -155,6 +162,24 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
             EditarPerfil Formulario = new EditarPerfil();
+            Formulario.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Program.tipo = "";
+            Program.tipo = "Seguidores";
+            PerfilListaAmigos Formulario = new PerfilListaAmigos();
+            Formulario.Show();
+            this.Hide();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Program.tipo = "";
+            Program.tipo = "Seguidos";
+            PerfilListaAmigos Formulario = new PerfilListaAmigos();
             Formulario.Show();
             this.Hide();
         }

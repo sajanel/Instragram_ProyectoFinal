@@ -37,6 +37,45 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void PerfilUsuario_Load(object sender, EventArgs e)
         {
+            ClaseUsuario objUsuarios = new ClaseUsuario(Program.miUsuario);
+            ClaseUsuario encontradoUsuarios = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuarios).valorNodo();
+
+            TablaDispercionColision.miCola.Clear();
+            encontradoUsuarios.tablaHashSeguidos.Mostar();
+            int auxCont = 0;          
+            
+            foreach (string item in TablaDispercionColision.miCola)
+            {
+                string[] palabras = item.ToString().Split(',');
+                if (auxCont == 0 )
+                {
+                    pictureBox8.WaitOnLoad = false;
+                    pictureBox8.LoadAsync(@"" + palabras[0]);    
+                }
+                else if (auxCont == 1)
+                {
+                    pictureBox14.WaitOnLoad = false;
+                    pictureBox14.LoadAsync(@"" + palabras[0]);
+                }
+                else if(auxCont == 2)
+                {
+                    pictureBox15.WaitOnLoad = false;
+                    pictureBox15.LoadAsync(@"" + palabras[0]);
+                }
+                else if(auxCont == 3)
+                {
+                    pictureBox16.WaitOnLoad = false;
+                    pictureBox16.LoadAsync(@"" + palabras[0]);
+                }
+                else if(auxCont == 4)
+                {
+                    pictureBox17.WaitOnLoad = false;
+                    pictureBox17.LoadAsync(@"" + palabras[0]);
+                }
+                auxCont++;
+            }
+
+
             miXml = new AuxXml();
             miXmlTemp = new AuxXml();
             PanelOpciones.Visible = false;
@@ -78,49 +117,62 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
             string[] arrayUsuarios = ArbolAvl.rcInorden(Program.objArbolAvl.raizArbol()).Split(';');
 
+
             Random r = new Random();
             int cont = 1;
-
-
+            //int auxcont = 0;
             for (int i = 0; i < 4; i++)
             {
-
-
                 //Genera un numero entre 10 y 100 (101 no se incluye)
                 // Console.WriteLine(r.Next(0, 3));
                 if (cont == 1)
                 {
                     string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
-                    pictureBox4.WaitOnLoad = false;
-                    pictureBox4.LoadAsync(@"" + arrUsuario[0]);
-                    label2.Text = arrUsuario[1];
-
-
-                    cont++;
+                    if (arrUsuario[1] != Program.miUsuario )
+                    {
+                        pictureBox4.WaitOnLoad = false;
+                        pictureBox4.LoadAsync(@"" + arrUsuario[0]);
+                        label2.Text = arrUsuario[1];
+                        cont++;
+                    }
+                    
                 }
-                if (cont == 2)
+                else if (cont == 2)
                 {
                     string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
-                    pictureBox5.WaitOnLoad = false;
-                    pictureBox5.LoadAsync(@"" + arrUsuario[0]);
-                    label3.Text = arrUsuario[1];
-                    cont++;
+                    if (arrUsuario[1] != Program.miUsuario)
+                    {
+                        pictureBox5.WaitOnLoad = false;
+                        pictureBox5.LoadAsync(@"" + arrUsuario[0]);
+                        label3.Text = arrUsuario[1];
+                        cont++;
+                    }
                 }
-                if (cont == 3)
+                else if (cont == 3)
                 {
                     string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
-                    pictureBox6.WaitOnLoad = false;
-                    pictureBox6.LoadAsync(@"" + arrUsuario[0]);
-                    label4.Text = arrUsuario[1];
-                    cont++;
+                    if (arrUsuario[1] != Program.miUsuario)
+                    {
+                        pictureBox6.WaitOnLoad = false;
+                        pictureBox6.LoadAsync(@"" + arrUsuario[0]);
+                        label4.Text = arrUsuario[1];
+                        cont++;
+                    }
                 }
-                if (cont == 4)
+                else if (cont == 4)
                 {
                     string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
-                    pictureBox7.WaitOnLoad = false;
-                    pictureBox7.LoadAsync(@"" + arrUsuario[0]);
-                    label5.Text = arrUsuario[1];
-                    cont++;
+                    if (arrUsuario[1] != Program.miUsuario)
+                    {
+                        pictureBox7.WaitOnLoad = false;
+                        pictureBox7.LoadAsync(@"" + arrUsuario[0]);
+                        label5.Text = arrUsuario[1];
+                        cont++;
+                    }
+                }
+                else
+                {
+                    i--;
                 }
             }
 

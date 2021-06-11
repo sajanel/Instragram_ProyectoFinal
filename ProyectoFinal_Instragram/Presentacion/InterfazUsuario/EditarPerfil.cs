@@ -26,7 +26,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         AuxXml miXml = new AuxXml();
         OpenFileDialog buscarFoto;
+        OpenFileDialog buscarFoto2;
         string urlFoto = "";
+        string urlFoto2 = "";
         string urProfile = "";
         string fechaNacimiento = "";
 
@@ -38,39 +40,47 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             desbloquearComandos(false);
             
         }
-        XmlDocument doc;
+        
 
         private void btnExaminar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog buscarFoto = new OpenFileDialog();
-            if (buscarFoto.ShowDialog() == DialogResult.OK)
+            buscarFoto2 = new OpenFileDialog();
+            if (buscarFoto2.ShowDialog() == DialogResult.OK)
             {
-                string urlFoto = buscarFoto.FileName;
-
-                string extension = System.IO.Path.GetExtension(buscarFoto.FileName);
+                urlFoto2 = buscarFoto2.FileName;
+                txtPublicaciones.Text = urlFoto2;
+                string extension = Path.GetExtension(buscarFoto2.FileName);
 
                 if (!extension.Equals(".png") && !extension.Equals(".jpg") && !extension.Equals(".PNG") && !extension.Equals(".jpeg"))
                 {
                     MessageBox.Show("Sólo se admiten archivos en formatos .png, .jpg, .jpeg");
                     return;
                 }
-
-                string nuevaRuta = Path.Combine(@"Perfiles", buscarFoto.SafeFileName);
-
-                if (!File.Exists(nuevaRuta))
-                {
-                    File.Copy(urlFoto, nuevaRuta);
-                }
-                else
-                {
-                    MessageBox.Show("La ruta de destino ya contiene un archivo con el mismo nombre.");
-                }
             }
+            pictureBox2.WaitOnLoad = false;
+            pictureBox2.LoadAsync(@"" + urlFoto2);
+
         }
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
             //ELIMINAR LOS DATOS DEL ARBOL Y LUEGO LEER OTRA VEZ EL XML USUARIOSINTA
+
+            urlFoto2 = buscarFoto2.FileName;
+            string nuevaRuta = Path.Combine(@"Perfiles/" + auxUsuario.Text, buscarFoto2.SafeFileName);
+
+            string urlImg = "Perfiles/" + auxUsuario.Text + "/" + Path.GetFileName(urlFoto2);
+
+            if (!File.Exists(nuevaRuta))
+
+            {
+                File.Copy(urlFoto2, nuevaRuta);
+                //File.Delete(urProfile);
+            }
+            else
+            {
+                MessageBox.Show("La ruta de destino ya contiene un archivo con el mismo nombre.");
+            }
 
             if (txtBiografia.Text == "" || txtContraPrueva.Text == "" || txtNuevaContra.Text == "" || txtUsuario.Text == "")
             {
@@ -84,9 +94,15 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             else
             {
                 fechaNacimiento = dateTimePicker1.Value.ToString("dd/MM/yyyy"); //Fecha Usuario
-                miXml.actualizarUsuario(txtUsuario.Text, txtNombre.Text, txtBiografia.Text, txtCorreo.Text, txtNuevaContra.Text, urProfile, "UsuariosInsta", fechaNacimiento);
+                miXml.actualizarUsuario(txtUsuario.Text, txtNombre.Text, txtBiografia.Text, txtCorreo.Text, txtNuevaContra.Text, urlImg, "UsuariosInsta", fechaNacimiento);
+                
+                miXml.actualizarUsuario(txtUsuario.Text, txtNombre.Text, txtBiografia.Text, txtCorreo.Text, txtNuevaContra.Text, urlImg, "UsuarioTemp", fechaNacimiento);
+
+                //ClaseUsuario objUsuario = new ClaseUsuario(txtUsuario.Text);
+                //ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+                //encontradoUsuario.imagenProfile = "";
+
                 SalirFomulario();
-                miXml.actualizarUsuario(txtUsuario.Text, txtNombre.Text, txtBiografia.Text, txtCorreo.Text, txtNuevaContra.Text, urProfile, "UsuarioTemp", fechaNacimiento);
             }
         }
 
@@ -185,7 +201,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             }
 
 
-                urlFoto = buscarFoto.FileName;
+            urlFoto = buscarFoto.FileName;
             string nuevaRuta = Path.Combine(@"Perfiles/" + auxUsuario.Text, buscarFoto.SafeFileName);
 
             string urlImg = "Perfiles/" + auxUsuario.Text + "/" + Path.GetFileName(urlFoto);
@@ -238,14 +254,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 
         private void txtContraPrueva_TextChanged(object sender, EventArgs e)
         {
-            if (txtNuevaContra == txtContraPrueva)
-            {           
-            }
-
-            else 
-            {
-                MessageBox.Show("Las contraseñas no son igules", "Confirmacion de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         public void desbloquearComandos(bool valor) 
@@ -256,10 +265,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             txtBiografia.Enabled = valor;
             txtContraPrueva.Enabled = valor;
             btnEditarPerfil.Enabled = valor;
+            btnEditarPerfil.Enabled = valor;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
-        {
+        {           
             if (lblFecha.Visible == true)
             {
                 lblFecha.Visible = false;
