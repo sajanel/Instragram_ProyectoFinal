@@ -11,6 +11,7 @@ using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
 using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 using System.IO;
+using ProyectoFinal_Instragram.Presentacion.Login;
 
 namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
 {
@@ -71,7 +72,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
     
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Navegation Formulario = new Navegation();
+            Login_Inicio Formulario = new Login_Inicio();
             Formulario.Show();
             this.Hide();
         }

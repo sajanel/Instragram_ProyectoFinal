@@ -34,6 +34,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblGuardado = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -52,6 +54,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -82,7 +85,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(1145, 65);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(45, 528);
+            this.panel3.Size = new System.Drawing.Size(45, 656);
             this.panel3.TabIndex = 3;
             // 
             // panel4
@@ -93,8 +96,31 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 65);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1145, 528);
+            this.panel4.Size = new System.Drawing.Size(1145, 656);
             this.panel4.TabIndex = 4;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.Controls.Add(this.lblGuardado);
+            this.panel8.Location = new System.Drawing.Point(44, 299);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(253, 43);
+            this.panel8.TabIndex = 7;
+            // 
+            // lblGuardado
+            // 
+            this.lblGuardado.AutoSize = true;
+            this.lblGuardado.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblGuardado.Image = ((System.Drawing.Image)(resources.GetObject("lblGuardado.Image")));
+            this.lblGuardado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblGuardado.Location = new System.Drawing.Point(59, 11);
+            this.lblGuardado.Name = "lblGuardado";
+            this.lblGuardado.Size = new System.Drawing.Size(125, 20);
+            this.lblGuardado.TabIndex = 6;
+            this.lblGuardado.Text = "       MostrarArbol";
+            this.lblGuardado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblGuardado.Click += new System.EventHandler(this.lblGuardado_Click);
             // 
             // panel6
             // 
@@ -155,6 +181,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.Contenidor1);
@@ -284,7 +311,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(249, 528);
+            this.panel1.Size = new System.Drawing.Size(249, 656);
             this.panel1.TabIndex = 5;
             // 
             // Login_Inicio
@@ -293,7 +320,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1190, 593);
+            this.ClientSize = new System.Drawing.Size(1190, 721);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -305,6 +332,8 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -340,5 +369,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label lblGuardado;
     }
 }

@@ -13,6 +13,7 @@ using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 using ProyectoFinal_Instragram.Estructura_de_datos.Vitacoras;
 using ProyectoFinal_Instragram.Presentacion.InterfazUsuario;
+using ProyectoFinal_Instragram.Presentacion.Grafico_Arbol;
 
 namespace ProyectoFinal_Instragram.Presentacion.Login
 {
@@ -103,6 +104,13 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
             miArchivo.limiarTxt();
          
             miXml.leerXmlCompleto("UsuariosInsta");
+        }
+
+        private void lblGuardado_Click(object sender, EventArgs e)
+        {
+            Grafica Formulario = new Grafica();
+            Formulario.Show();
+            this.Hide();
         }
     }
 }

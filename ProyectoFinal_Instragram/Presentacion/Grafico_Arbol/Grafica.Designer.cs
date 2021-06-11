@@ -81,6 +81,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Preorden",
@@ -193,9 +194,9 @@ namespace ProyectoFinal_Instragram.Presentacion.Grafico_Arbol
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(55)))), ((int)(((byte)(95)))));
             this.label3.Location = new System.Drawing.Point(998, 444);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 21);
+            this.label3.Size = new System.Drawing.Size(98, 21);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Vitacoras";
+            this.label3.Text = "Bitácora";
             // 
             // Grafica
             // 
