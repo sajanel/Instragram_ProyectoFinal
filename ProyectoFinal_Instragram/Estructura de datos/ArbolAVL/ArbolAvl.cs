@@ -14,10 +14,14 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
         public int factorEquilibrio { get; set; }
 
         TxtArchivo archivoPlano = new TxtArchivo();
+        
 
         public ArbolAvl()
         {
             arbolRaiz = null;
+            TxtArchivo miArchivo = new TxtArchivo();
+            miArchivo.limiarTxt();
+
         }
 
         public NodoAvl raizArbol()
@@ -106,6 +110,7 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL
             return n2;
         }
 
+        
         public void insertar(Object valor)
         {
             Comparador dato;
