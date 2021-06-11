@@ -13,6 +13,7 @@ using System.Xml;
 using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using ProyectoFinal_Instragram.Estructura_de_datos.TablaHash;
 
 namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 {
@@ -21,6 +22,12 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         AuxXml miXmlTemp;
         AuxXml miXml;
         ArbolAvl miArbol = Program.objArbolAvl;
+
+        private int y = 0;
+        private int y2 = 425;
+        private int conteo = 0;
+
+
         public Navegation()
         {
             InitializeComponent();
@@ -116,7 +123,87 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 }
             }
 
+
+
+            ClaseUsuario objUsuario = new ClaseUsuario(Program.miUsuario);
+            ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+
+           
+            TablaDispercionColision.miCola.Clear();
+            Eliminar();
+            encontradoUsuario.tablaHashSeguidos.Mostar();
+            
+            foreach (var item in TablaDispercionColision.miCola)
+            {
+                Pintar(item.ToString());
+                obtener();
+            }
+           
+
         }
+
+
+        int conta = 0;
+
+
+        public void obtener()
+        {
+
+            //PictureBox pic = this.Controls.OfType<PictureBox>().First(x => x.Name == "picturebox" + conta.ToString());
+
+            //Program.pictureBoxes[conta] = pic;
+
+            //conta++;
+        }
+        public void Eliminar()
+        {
+            //for (int i = 0; i < Program.pictureBoxes.Length; i++)
+            //{
+            //    if (Program.pictureBoxes[i] != null)
+            //    {
+
+            //        this.Controls.Remove(Program.pictureBoxes[i]);
+            //        Program.pictureBoxes[i].Dispose();
+            //        Program.pictureBoxes[i].Image = null;
+            //    }
+
+            //}
+        }
+        public void Pintar(string texto)
+        {
+            PictureBox temp = new PictureBox();
+            Label temp2 = new Label();
+
+            string nuevo = texto;
+            string[] palabras = nuevo.Split(',');
+
+            
+            temp.Height = 500;
+            temp.Width = 500;
+            temp.Location = new Point(40, y);
+            y += 550;
+            temp.Name = "picturebox" + conteo.ToString();
+
+            temp.ImageLocation = @"" + palabras[0];
+            temp.SizeMode = PictureBoxSizeMode.Zoom;
+            //conteo++;
+
+
+            //temp2.Height = 20;
+            //temp2.Width = 150;
+            //temp2.Location = new Point(120, y2);
+            //y2 += 100;
+            //temp2.Name = "label" + conteo.ToString();
+
+            //temp2.Text = palabras[1];
+            conteo++;
+            Program.cont++;
+
+            panel7.Controls.Add(temp);
+            //Controls.Add(temp2);
+        }
+
+
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
@@ -205,9 +292,9 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             label6.Text = "";
             label7.Text = "";
             label8.Text = "";
-            pictureBox18 = null;
-            pictureBox19 = null;
-            pictureBox20 = null;
+            //pictureBox18 = null;
+            //pictureBox19 = null;
+            //pictureBox20 = null;
         }
         private void txtBuscarUsuario_TextChanged(object sender, EventArgs e)
         {
@@ -235,7 +322,8 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                         {
                             aux++;
                             if (aux ==1) 
-                            { 
+                            {
+                                
                                 pictureBox18.WaitOnLoad = false;
                                 pictureBox18.LoadAsync(@"" + palabras[Aux - 2]);
                                 label6.Text = palabra; panel8.Visible = true;
@@ -243,6 +331,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                             }
                             else if (aux == 2) 
                             {
+                                
                                 pictureBox19.WaitOnLoad = false;
                                 pictureBox19.LoadAsync(@"" + palabras[Aux - 2]);
                                 label7.Text = palabra; 

@@ -68,7 +68,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -100,8 +99,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
@@ -532,24 +529,13 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             // 
             // panel7
             // 
+            this.panel7.AutoScroll = true;
             this.panel7.BackColor = System.Drawing.Color.White;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.pictureBox3);
             this.panel7.Location = new System.Drawing.Point(200, 230);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(594, 330);
+            this.panel7.Size = new System.Drawing.Size(594, 490);
             this.panel7.TabIndex = 26;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.DimGray;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(104, 14);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(371, 299);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
             // 
             // panel8
             // 
@@ -675,8 +661,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
@@ -723,7 +707,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
