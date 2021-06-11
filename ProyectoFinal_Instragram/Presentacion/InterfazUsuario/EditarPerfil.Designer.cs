@@ -51,6 +51,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEliminacion = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.auxUsuario = new System.Windows.Forms.TextBox();
-            this.btnEliminacion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -306,11 +306,22 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.panel2.Controls.Add(this.txtBiografia);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtCorreo);
-            this.panel2.Location = new System.Drawing.Point(289, 186);
+            this.panel2.Location = new System.Drawing.Point(290, 168);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(842, 545);
             this.panel2.TabIndex = 23;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnEliminacion
+            // 
+            this.btnEliminacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminacion.Location = new System.Drawing.Point(85, 326);
+            this.btnEliminacion.Name = "btnEliminacion";
+            this.btnEliminacion.Size = new System.Drawing.Size(108, 29);
+            this.btnEliminacion.TabIndex = 31;
+            this.btnEliminacion.Text = "Eliminar cuenta";
+            this.btnEliminacion.UseVisualStyleBackColor = true;
+            this.btnEliminacion.Click += new System.EventHandler(this.btnEliminacion_Click);
             // 
             // btnModificar
             // 
@@ -367,7 +378,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.panel3.Controls.Add(this.btnSubir);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(289, 160);
+            this.panel3.Location = new System.Drawing.Point(290, 142);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(867, 346);
             this.panel3.TabIndex = 24;
@@ -481,21 +492,11 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             this.auxUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.auxUsuario.Enabled = false;
             this.auxUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.auxUsuario.Location = new System.Drawing.Point(374, 130);
+            this.auxUsuario.Location = new System.Drawing.Point(290, 120);
             this.auxUsuario.Name = "auxUsuario";
             this.auxUsuario.Size = new System.Drawing.Size(100, 16);
             this.auxUsuario.TabIndex = 25;
-            // 
-            // btnEliminacion
-            // 
-            this.btnEliminacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEliminacion.Location = new System.Drawing.Point(85, 326);
-            this.btnEliminacion.Name = "btnEliminacion";
-            this.btnEliminacion.Size = new System.Drawing.Size(108, 29);
-            this.btnEliminacion.TabIndex = 31;
-            this.btnEliminacion.Text = "Eliminar cuenta";
-            this.btnEliminacion.UseVisualStyleBackColor = true;
-            this.btnEliminacion.Click += new System.EventHandler(this.btnEliminacion_Click);
+            this.auxUsuario.Visible = false;
             // 
             // EditarPerfil
             // 

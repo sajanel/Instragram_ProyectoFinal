@@ -7,6 +7,7 @@ using ProyectoFinal_Instragram.Presentacion.Login;
 using ProyectoFinal_Instragram.Presentacion.Grafico_Arbol;
 using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
+using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
 
 namespace ProyectoFinal_Instragram
 {
@@ -18,6 +19,7 @@ namespace ProyectoFinal_Instragram
         static public ClaseUsuario objUsuarioXml2;
         static public string tipo;
         static public int cont;
+        static public listaDoble navPublicaciones = new listaDoble();
 
         static public PictureBox[] pictureBoxes = new PictureBox[20];
 

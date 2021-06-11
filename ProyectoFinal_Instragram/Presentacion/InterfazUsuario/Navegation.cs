@@ -14,6 +14,7 @@ using ProyectoFinal_Instragram.Estructura_de_datos.XML;
 using ProyectoFinal_Instragram.Estructura_de_datos.ArbolAVL;
 using ProyectoFinal_Instragram.Estructura_de_datos.Usuario;
 using ProyectoFinal_Instragram.Estructura_de_datos.TablaHash;
+using ProyectoFinal_Instragram.Estructura_de_datos.ListaDoble;
 
 namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
 {
@@ -71,7 +72,7 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                 }
             }
 
-            
+
             //string phrase = ArbolAvl.rcInorden(Program.objArbolAvl.raizArbol());
             //string[] arrayUsuarios = phrase.Split(';');
 
@@ -80,13 +81,13 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             Random r = new Random();
             int cont = 1;
 
-           
+
             for (int i = 0; i < 4; i++)
             {
 
-      
+
                 //Genera un numero entre 10 y 100 (101 no se incluye)
-               // Console.WriteLine(r.Next(0, 3));
+                // Console.WriteLine(r.Next(0, 3));
                 if (cont == 1)
                 {
                     string[] arrUsuario = arrayUsuarios[r.Next(0, arrayUsuarios.Length - 1)].Split(',');
@@ -128,46 +129,58 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
             ClaseUsuario objUsuario = new ClaseUsuario(Program.miUsuario);
             ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
 
-           
+
             TablaDispercionColision.miCola.Clear();
             Eliminar();
             encontradoUsuario.tablaHashSeguidos.Mostar();
-            
+
+            Program.navPublicaciones.vaciar();
+
+            //Perfiles/alejandro/Prueba.jpg,alejandro
+            string cadenaId = "";
             foreach (var item in TablaDispercionColision.miCola)
             {
-                Pintar(item.ToString());
-                obtener();
+                string[] palabras = item.ToString().Split(',');
+                cadenaId = cadenaId + palabras[1] + ",";
             }
-           
+
+            miXml.leerPublicaciones(cadenaId, "UsuariosInsta");
+            buscarLista();
 
         }
+        public void buscarLista()
+        {
+            NodoDoble indice;
+            for (indice = Program.navPublicaciones.inicio; indice != null; indice = indice.siguiente)
+            {
+                Pintar(indice.dato.ToString());
+                obtener();
+            }
 
+        }
 
         int conta = 0;
 
 
         public void obtener()
         {
-
-            //PictureBox pic = this.Controls.OfType<PictureBox>().First(x => x.Name == "picturebox" + conta.ToString());
-
-            //Program.pictureBoxes[conta] = pic;
-
-            //conta++;
+            PictureBox pic = panel7.Controls.OfType<PictureBox>().First(x => x.Name == "picturebox" + conta.ToString());
+            Program.pictureBoxes[conta] = pic;
+            conta++;
         }
         public void Eliminar()
         {
-            //for (int i = 0; i < Program.pictureBoxes.Length; i++)
-            //{
-            //    if (Program.pictureBoxes[i] != null)
-            //    {
+            for (int i = 0; i < Program.pictureBoxes.Length; i++)
+            {
+                if (Program.pictureBoxes[i] != null)
+                {
 
-            //        this.Controls.Remove(Program.pictureBoxes[i]);
-            //        Program.pictureBoxes[i].Dispose();
-            //        Program.pictureBoxes[i].Image = null;
-            //    }
+                    panel7.Controls.Remove(Program.pictureBoxes[i]);
+                    Program.pictureBoxes[i].Dispose();
+                    Program.pictureBoxes[i].Image = null;
+                }
 
-            //}
+            }
         }
         public void Pintar(string texto)
         {

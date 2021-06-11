@@ -429,5 +429,46 @@ namespace ProyectoFinal_Instragram.Estructura_de_datos.XML
             }
             auxDoc.Save(rutaXml);
         }
+
+        public void leerPublicaciones(string idUsuario, string nombreXml)
+        {
+            auxDoc = new XmlDocument();
+            rutaXml = @"" + nombreXml + ".xml";
+            auxDoc.Load(rutaXml);
+
+            XmlNodeList listaUsuarios = auxDoc.SelectNodes("Usuarios/usuario");
+            XmlNode unUsuario;
+
+
+            string[] palabras = idUsuario.Split(',');
+
+            //USUARIO
+            for (int a = 0; a < listaUsuarios.Count; a++)
+            {
+                unUsuario = listaUsuarios.Item(a);
+                string usuario = unUsuario.SelectSingleNode("Usuario").InnerText;
+
+                for (int i = 0; i < palabras.Length-1; i++)
+                {
+                    if (usuario == palabras[i])
+                    {
+                        //PUBLICACION
+                        XmlNodeList listaPublicaciones = unUsuario.SelectNodes("Publicacion/publicacion");
+                        XmlNode unaPublicacion;
+                        for (int b = 0; b < listaPublicaciones.Count; b++)
+                        {
+                            unaPublicacion = listaPublicaciones.Item(b);
+                            string miPublicacion = unaPublicacion.InnerText;
+
+                            //Program.objUsuarioXml2.insertarPublicaciones(miPublicacion);
+                            Program.navPublicaciones.insertarAlInicio(miPublicacion);
+                        }
+
+                    }
+                }
+                
+
+            }
+        }
     }
 }
