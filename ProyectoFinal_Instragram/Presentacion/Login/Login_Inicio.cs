@@ -73,7 +73,7 @@ namespace ProyectoFinal_Instragram.Presentacion.Login
                 else
                 {
                     ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscar(objUsuario).valorNodo();
-                    MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
+                    //MessageBox.Show("Dato encontrado   " + encontradoUsuario.busquedaInfo());
 
                     Program.miUsuario = encontradoUsuario.usuario;
                     Program.miFoto = encontradoUsuario.imagenProfile;
