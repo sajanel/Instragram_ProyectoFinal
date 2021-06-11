@@ -153,28 +153,26 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             EliminarPublicacion(pictureBox3, Aux1);
-
-
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            EliminarPublicacion(pictureBox4, Aux1);
+            EliminarPublicacion(pictureBox4, Aux2);
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            EliminarPublicacion(pictureBox5, Aux1);
+            EliminarPublicacion(pictureBox5, Aux3);
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            EliminarPublicacion(pictureBox6, Aux1);
+            EliminarPublicacion(pictureBox6, Aux4);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            EliminarPublicacion(pictureBox7, Aux1);
+            EliminarPublicacion(pictureBox7, Aux5);
         }
 
         public void EliminarPublicacion (PictureBox pictureBox,string Aux)   
@@ -200,6 +198,13 @@ namespace ProyectoFinal_Instragram.Presentacion.InterfazUsuario
                     File.Delete(@"" + Aux);
                     
                     miXml.eliminarPublicacion(Aux, lbUsuario.Text, "UsuariosInsta");
+
+                    ClaseUsuario objUsuario = new ClaseUsuario(lbUsuario.Text);
+                    ClaseUsuario encontradoUsuario = (ClaseUsuario)Program.objArbolAvl.buscarUsuario(objUsuario).valorNodo();
+                    encontradoUsuario.miLista.vaciar();
+
+                    miXml.listaDoblePublicaciones(lbUsuario.Text, "UsuariosInsta");
+
                 }
                
 
